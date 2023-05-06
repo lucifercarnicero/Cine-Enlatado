@@ -1,0 +1,10 @@
+<nav>
+  <ul >
+    <li *ngFor="let item of navbarItems"
+    >
+      <a [routerLink]="[ item.url ]">{{item.name}}</a>
+    </li>
+
+  </ul>
+</nav>
+
