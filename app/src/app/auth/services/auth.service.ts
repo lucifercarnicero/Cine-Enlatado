@@ -31,10 +31,14 @@ export class AuthService {
         tap(resp => {
           if(resp.ok ){
             localStorage.setItem('token', resp.token!)
+            localStorage.setItem('name', resp.name!)
+            localStorage.setItem('id', resp.uid!)
+            localStorage.setItem('esAdmin', resp.esAdmin ? resp.esAdmin.toString() : 'false')
             this._ususario = {
               email: resp.email!,
               name: resp.name!,
-              uid: resp.uid!
+              uid: resp.uid!,
+              esAdmin: resp.esAdmin!
             }
           }
         }),
@@ -54,10 +58,15 @@ export class AuthService {
         tap(resp => {
           if(resp.ok ){
             localStorage.setItem('token', resp.token!)
+            localStorage.setItem('name', resp.name!)
+            localStorage.setItem('id', resp.uid!)
+            localStorage.setItem('esAdmin', resp.esAdmin ? resp.esAdmin.toString() : 'false')
+
             this._ususario = {
               email: resp.email!,
               name: resp.name!,
-              uid: resp.uid!
+              uid: resp.uid!,
+              esAdmin: resp.esAdmin!
             }
           }
         }
@@ -75,11 +84,16 @@ export class AuthService {
     return this.http.get<AuthResponse>(url, {headers})
       .pipe(
         map( (resp: any) => {
-          localStorage.setItem('token', resp.token)
+          localStorage.setItem('token', resp.token!)
+            localStorage.setItem('name', resp.name!)
+            localStorage.setItem('id', resp.uid!)
+            localStorage.setItem('esAdmin', resp.esAdmin ? resp.esAdmin.toString() : 'false')
+
           this._ususario = {
             email: resp.email,
             name: resp.name,
-            uid: resp.uid
+            uid: resp.uid,
+            esAdmin: resp.esAdmin
           }
           return resp.ok
         }

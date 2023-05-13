@@ -3,9 +3,11 @@ const Usuario = require('../models/Usuario')
 const bcrypt = require('bcryptjs');
 const { generarJWT } = require('../helpers/jwt');
 
+const DEFAULT_ADMIN = false;
+
 const crearUsuario = async (req, res = response) => {
 
-    const { name, email, password } = req.body;
+    const { name, email, password, esAdmin = DEFAULT_ADMIN} = req.body;
 
     try {
 
@@ -45,6 +47,7 @@ const crearUsuario = async (req, res = response) => {
             name,
             email,
             password,
+            esAdmin,
             token
         })
         
@@ -91,12 +94,13 @@ const loginUsuario = async(req, res = response) => {
         //Generar el JWT (Json Web Token) para q use para autenticas
         const token = await generarJWT(dbUser.id, dbUser.name);
 
-        //Respuesta del servicio (no necesaria pero la ponemos por tener constancia y aprender)
+        //Respuesta del servicio (no necesaria pero la ponemos por tener constancia y yo que sé)
         return res.json({
             ok: true,
             uid: dbUser.id,
             name: dbUser.name,
             email: dbUser.email,
+            esAdmin: dbUser.esAdmin,
             token
         })
         

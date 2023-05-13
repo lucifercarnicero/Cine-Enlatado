@@ -34,7 +34,7 @@ export class LoginComponent {
 
         if(ok === true) {
           //ok debe ser true para navegar, si pongo sólo true al existir redirige aunque sea false
-          this.router.navigateByUrl('/dashboard')
+          this.router.navigateByUrl('/dashboard/dashboard')
         } else {
           //TODO: mostrar mensaje de error
           Swal.fire('Error', ok, 'error')

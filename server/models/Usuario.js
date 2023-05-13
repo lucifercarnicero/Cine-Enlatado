@@ -16,6 +16,10 @@ const UsuarioSchema = Schema({
         type:String,
         required: [true, 'El password es obligatorio']
     },
+    esAdmin: {
+        type: Boolean,
+        default: false
+    }
 })
 
 //OJO CON LA IMPORTACIÓN PORQUE HACE FALTA PASARLO POR EL MODELO
