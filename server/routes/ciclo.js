@@ -7,6 +7,7 @@ router.post('/crear', ciclosController.crearCiclo);
 router.delete('/eliminar/:id', ciclosController.eliminarCiclo);
 router.patch('/editar/:id', ciclosController.editarCiclo);
 router.get('/buscar', ciclosController.buscarCiclos);
+router.get('/obtener', ciclosController.obtenerCiclos);
 
 
 module.exports = router;

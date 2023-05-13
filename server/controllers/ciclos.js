@@ -44,3 +44,13 @@ exports.buscarCiclos = async (req, res) => {
     res.json({ mensaje: 'Hubo un error al buscar los ciclos.' });
   }
 };
+
+exports.obtenerCiclos = async (req, res) => {
+  try {
+    const ciclos = await Ciclo.find();
+    res.json(ciclos);
+  } catch (error) {
+    console.log(error);
+    res.json({ mensaje: 'Hubo un error al obtener los ciclos.' });
+  }
+};

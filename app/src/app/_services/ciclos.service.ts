@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Ciclo } from '../interfaces/ciclo';
 
 @Injectable({providedIn: 'root'})
-export class ServiceNameService {
+export class CiclosService {
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +22,10 @@ export class ServiceNameService {
 
   buscarCiclos(nombre: string): Observable<Ciclo[]> {
     return this.http.get<Ciclo[]>(`http://localhost:3000/ciclos?nombre=${nombre}`);
+  }
+
+  obtenerCiclos(): Observable<Ciclo[]> {
+    return this.http.get<Ciclo[]>('http://localhost:3000/api/ciclos/obtener');
   }
 
 }
