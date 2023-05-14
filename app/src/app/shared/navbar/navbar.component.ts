@@ -18,6 +18,7 @@ export class NavbarComponent {
     { name: 'Ciclo', url: './ciclo' },
 
 
+
   ]
 
 }
