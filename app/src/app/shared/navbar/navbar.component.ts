@@ -15,7 +15,7 @@ export class NavbarComponent {
   public navbarItems: MenuItem[] = [
     { name: 'Home', url: '' },
     { name: 'Listado', url: './list' },
-    { name: 'Ciclo', url: './ciclo' },
+    { name: 'Random Ciclo', url: './random' },
 
 
 

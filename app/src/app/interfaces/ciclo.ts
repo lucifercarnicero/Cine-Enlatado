@@ -9,9 +9,11 @@ export class Like {
 }
 
 export class Ciclo {
-  nombre!: string;
-  descripcion!: string;
-  peliculas!: Pelicula[];
   autor!: string;
+  descripcion!: string;
   likes?: Like[];
+  nombre!: string;
+  peliculas!: Pelicula[];
+  __v!: number;
+  _id!: string;
 }

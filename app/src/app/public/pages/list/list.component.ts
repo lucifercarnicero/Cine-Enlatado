@@ -27,4 +27,11 @@ export class ListComponent implements OnInit {
       (error) => console.log(error)
     );
   }
+
+  showCiclo(id: string) {
+    console.log(id);
+
+    //añadir a service buscar por ID el ciclo
+  }
+
 }

@@ -1,1 +1,14 @@
-<p>list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let ciclo of ciclos" >
+      <div class="card shadow m-3 " (click)="showCiclo(ciclo._id)">
+        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top" [alt]="ciclo.nombre" />
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{ ciclo.nombre| titlecase }}</strong></h5>
+          <p class="card-text">{{ ciclo.descripcion }}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
