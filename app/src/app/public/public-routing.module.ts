@@ -11,7 +11,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'list', component: ListComponent }, // home/list
-      { path: 'ciclo', component: CicloComponent }, // home/ciclo
+      { path: 'ciclo/:id', component: CicloComponent }, // home/ciclo
       { path: 'random', component: RandomComponent },
       { path: '**', redirectTo: '' }
     ]

@@ -28,4 +28,8 @@ export class CiclosService {
     return this.http.get<Ciclo[]>('http://localhost:3000/api/ciclos/obtener');
   }
 
+  getCiclo(id: string): Observable<Ciclo> {
+    return this.http.get<Ciclo>(`http://localhost:3000/api/ciclos/get/${id}`);
+  }
+
 }

@@ -1,1 +1,31 @@
-<p>ciclo works!</p>
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <div class="col-6">
+      <h2>{{ ciclo?.nombre | titlecase }}</h2>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+      <button class="btn" type="button" (click)="goList()">
+        <strong>VOLVER</strong>
+        <div id="container-stars">
+          <div id="stars"></div>
+        </div>
+
+        <div id="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </button>
+    </div>
+
+  </div>
+  <div class="row" *ngIf="ciclo">
+    <ul>
+      <li *ngFor="let pelicula of ciclo.peliculas">
+        {{ pelicula.idExterno }}
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <p>{{ ciclo?.descripcion }}</p>
+  </div>
+</div>
