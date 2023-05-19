@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ciclo } from '../interfaces/ciclo';
+import { Ciclo, CrearCiclo } from '../interfaces/ciclo';
 
 @Injectable({providedIn: 'root'})
 export class CiclosService {
 
   constructor(private http: HttpClient) { }
 
-  crearCiclo(ciclo: Ciclo): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/ciclos', ciclo);
+  crearCiclo(ciclo: CrearCiclo): Observable<CrearCiclo> {
+    return this.http.post<any>('http://localhost:3000/api/ciclos/crear', ciclo);
   }
+
 
   eliminarCiclo(id: string): Observable<any> {
     return this.http.delete<any>(`http://localhost:3000/ciclos/${id}`);

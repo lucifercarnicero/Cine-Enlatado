@@ -6,11 +6,10 @@ import { CrearCicloComponent } from './crear-ciclo/crear-ciclo.component';
 const routes: Routes = [
 
   {
-    path:'dashboard',
+    path:'',
     component: DashboardComponent,
     children: [
       {path:'crear', component: CrearCicloComponent},
-      {path:'', component: DashboardComponent},
       {path:'**', redirectTo:''}
     ]
   },

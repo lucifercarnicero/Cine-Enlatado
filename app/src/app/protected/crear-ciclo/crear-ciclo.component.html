@@ -1,34 +1,38 @@
+<div class="container">
+  <h1>Crear Ciclo</h1>
 
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="rounded p-4 border">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Escribe el nombre...">
+    </div>
 
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3"></textarea>
+    </div>
 
+    <div class="form-group">
+      <label for="query">Búsqueda de películas</label>
+      <input type="text" class="form-control" id="query" formControlName="query" placeholder="Escribe el título de la película...">
+      <button type="button" class="btn btn-primary mt-3" (click)="searchMovies()">Buscar</button>
+    </div>
 
-
-
-  <div class="container">
-    <h1>Crear Ciclo</h1>
-
-    <form action="" class="rounded p-4 border">
-
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Escribe el nombre...">
+    <div *ngIf="searchResults.length > 0">
+      <h2>Resultados:</h2>
+      <div *ngFor="let movie of searchResults">
+        <div>
+          <input type="checkbox" (change)="addToForm(movie)">
+          {{ movie.title }}
+        </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="descripcion">Descripcion</label>
-        <textarea class="form-control" id="descripcion" rows="3"></textarea>
-      </div>
+    <h2>Películas seleccionadas:</h2>
+    <div *ngFor="let movie of selectedMovies">
+      {{ movie.title }}
+    </div>
 
-      <!-- Aquí podrías agregar tu ng-select component
-        documentación: https://github.com/ng-select/ng-select
-        las importaciones ya están -->
-
-      <button type="submit" class="btn btn-primary mt-3">Enviar</button>
-
-    </form>
-  </div>
-
-
-
-
-
+    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+  </form>
+</div>

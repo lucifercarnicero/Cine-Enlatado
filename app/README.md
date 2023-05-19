@@ -3,3 +3,5 @@
 3. En caso de tener problemas con mongo revisar la autorización de la ip y relanzar el closter
 
 Para salir ctrl + c en las consolas
+
+interfaces -> imdb es la busqueda global, movie es el resultado de buscar por ID

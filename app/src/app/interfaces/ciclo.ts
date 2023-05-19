@@ -13,7 +13,10 @@ export class Ciclo {
   descripcion!: string;
   likes?: Like[];
   nombre!: string;
-  peliculas!: Pelicula[];
+  peliculas?: Pelicula[];
   __v!: number;
   _id!: string;
 }
+
+export interface CrearCiclo extends Omit<Ciclo, '__v' | '_id'> {}
+

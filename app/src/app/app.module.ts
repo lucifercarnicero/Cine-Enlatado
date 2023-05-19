@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { CiclosService } from './_services/ciclos.service';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,13 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     SharedModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+
 
   ],
-  providers: [],
+  providers: [
+    CiclosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
