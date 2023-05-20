@@ -46,9 +46,14 @@ export class CrearCicloComponent {
   }
 
   onSubmit() {
+    if (this.searchForm.invalid) {
+      // Realizar acciones adicionales si el formulario es inválido (mostrar mensajes de error, etc.)
+      return;
+    }
+
     const nombre = this.searchForm.get('nombre')?.value;
     const descripcion = this.searchForm.get('descripcion')?.value;
-    const autor = localStorage.getItem('userId');
+    const autor = localStorage.getItem('id') ?? '';
     const peliculas = this.selectedMovies.map((movie) => {
       const pelicula: Pelicula = {
         idExterno: movie.id,
@@ -57,17 +62,21 @@ export class CrearCicloComponent {
     });
 
     const ciclo: CrearCiclo = {
-      autor: autor ?? '',
-      descripcion: descripcion,
-      nombre: nombre,
-      //peliculas: peliculas,
+      nombre,
+      descripcion,
+      peliculas,
+      autor,
     };
 
-
-    this.cicloService.crearCiclo(ciclo).subscribe((data) => {
-      console.log(data);
-
-      this.searchForm.reset();
-    });
+    this.cicloService.crearCiclo(ciclo).subscribe(
+      (data) => {
+        console.log(data);
+        // Realizar acciones adicionales si es necesario
+      },
+      (error) => {
+        console.error('Error al crear el ciclo:', error);
+        // Mostrar mensaje de error al usuario o realizar acciones adicionales para manejar el error
+      }
+    );
   }
 }

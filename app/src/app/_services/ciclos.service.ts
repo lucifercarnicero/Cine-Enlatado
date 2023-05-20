@@ -8,8 +8,15 @@ export class CiclosService {
 
   constructor(private http: HttpClient) { }
 
+  /*
   crearCiclo(ciclo: CrearCiclo): Observable<CrearCiclo> {
     return this.http.post<any>('http://localhost:3000/api/ciclos/crear', ciclo);
+  }
+  */
+
+  crearCiclo(ciclo: CrearCiclo): Observable<CrearCiclo> {
+    const url = `http://localhost:3000/api/ciclos/crear`;
+    return this.http.post<CrearCiclo>(url, ciclo);
   }
 
 
