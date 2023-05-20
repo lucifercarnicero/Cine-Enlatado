@@ -5,6 +5,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Ciclo, CrearCiclo, Pelicula } from 'src/app/interfaces/ciclo';
 import { CiclosService } from 'src/app/_services/ciclos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-ciclo',
@@ -18,7 +19,8 @@ export class CrearCicloComponent {
 
   constructor(
     private imdbService: ImdbService,
-    private cicloService: CiclosService
+    private cicloService: CiclosService,
+    private router: Router
   ) {
     this.searchForm = new FormGroup({
       nombre: new FormControl(''),
@@ -78,5 +80,13 @@ export class CrearCicloComponent {
         // Mostrar mensaje de error al usuario o realizar acciones adicionales para manejar el error
       }
     );
+
+    this.searchForm.reset();
+
+    this.router.navigateByUrl('/home/list');
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/home/list');
   }
 }

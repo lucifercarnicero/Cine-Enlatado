@@ -18,8 +18,23 @@
 -->
 
 <div class="container">
+
+    <div class="col-12 d-flex justify-content-end mb-2">
+      <button class="btn" type="button" (click)="goCreate()">
+        <strong>CREAR</strong>
+        <div id="container-stars">
+          <div id="stars"></div>
+        </div>
+
+        <div id="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </button>
+    </div>
+
   <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-6 m-3" *ngFor="let ciclo of ciclos">
+    <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mb-2" *ngFor="let ciclo of ciclos">
       <div class="myCard" (click)="goCiclo(ciclo._id)">
         <div class="innerCard">
             <div class="frontSide">

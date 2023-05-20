@@ -40,4 +40,8 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/home/ciclo', id]);
   }
 
+  goCreate() {
+    this.router.navigate(['/dashboard/crear']);
+  }
+
 }
