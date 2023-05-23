@@ -4,12 +4,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/list/list.component';
 import { CicloComponent } from './pages/ciclo/ciclo.component';
 import { RandomComponent } from './pages/random/random.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 const routes: Routes = [
   {
     path: '', // /home
     component: HomeComponent,
     children: [
+      { path: '', component: InicioComponent },
       { path: 'list', component: ListComponent }, // home/list
       { path: 'ciclo/:id', component: CicloComponent }, // home/ciclo
       { path: 'random', component: RandomComponent },

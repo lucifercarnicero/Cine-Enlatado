@@ -15,7 +15,7 @@
   background-clip: content-box, border-box;
 }
 
-#container-stars {
+.container-stars {
   position: absolute;
   z-index: -1;
   width: 100%;
@@ -35,7 +35,7 @@ strong {
   text-shadow: 0 0 4px white;
 }
 
-#glow {
+.glow {
   position: absolute;
   display: flex;
   width: 12rem;
@@ -57,7 +57,7 @@ strong {
   background: rgba(142, 81, 234, 0.704);
 }
 
-.btn:hover #container-stars {
+.btn:hover .container-stars {
   z-index: 1;
   background-color: #212121;
 }
@@ -77,14 +77,14 @@ strong {
   background: #FE53BB;
 }
 
-#stars {
+.stars {
   position: relative;
   background: transparent;
   width: 200rem;
   height: 200rem;
 }
 
-#stars::after {
+.stars::after {
   content: "";
   position: absolute;
   top: -10rem;
@@ -94,12 +94,12 @@ strong {
   animation: animStarRotate 90s linear infinite;
 }
 
-#stars::after {
+.stars::after {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
   background-size: 50px 50px;
 }
 
-#stars::before {
+.stars::before {
   content: "";
   position: absolute;
   top: 0;
@@ -109,7 +109,7 @@ strong {
   animation: animStar 60s linear infinite;
 }
 
-#stars::before {
+.stars::before {
   background-image: radial-gradient(#ffffff 1px, transparent 1%);
   background-size: 50px 50px;
   opacity: 0.5;

@@ -16,6 +16,8 @@ export class CrearCicloComponent {
   searchForm: FormGroup;
   searchResults: Result[] = [];
   selectedMovies: Result[] = [];
+  isLoading: boolean = false;
+
 
   constructor(
     private imdbService: ImdbService,
@@ -30,13 +32,19 @@ export class CrearCicloComponent {
   }
 
   searchMovies() {
+    this.isLoading = true;
     const query = this.searchForm.get('query')?.value;
     if (query) {
       this.imdbService.searchMovie(query).subscribe((data: imdb) => {
         this.searchResults = data.results;
+        this.isLoading = false; // Establecer isLoading en false cuando se reciban los resultados
+      }, (error) => {
+        this.isLoading = false; // Establecer isLoading en false en caso de error
+        console.error('Error al buscar películas:', error);
       });
     }
   }
+
 
   addToForm(movie: Result) {
     const index = this.selectedMovies.findIndex((m) => m.title === movie.title);

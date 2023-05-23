@@ -4,11 +4,11 @@
   <div class="col-12 d-flex justify-content-end mb-2">
     <button class="btn" type="button" (click)="goBack()">
       <strong>CREAR</strong>
-      <div id="container-stars">
-        <div id="stars"></div>
+      <div class="container-stars">
+        <div class="stars"></div>
       </div>
 
-      <div id="glow">
+      <div class="glow">
         <div class="circle"></div>
         <div class="circle"></div>
       </div>
@@ -29,7 +29,24 @@
     <div class="form-group">
       <label for="query">Búsqueda de películas</label>
       <input type="text" class="form-control" id="query" formControlName="query" placeholder="Escribe el título de la película...">
-      <button type="button" class="btn btn-primary mt-3" (click)="searchMovies()">Buscar</button>
+
+
+      <button class="btn" type="button" (click)="searchMovies()">
+        <strong>BUSCAR</strong>
+        <div class="container-stars">
+          <div class="stars"></div>
+        </div>
+
+        <div class="glow">
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+
+
+      </button>
+    </div>
+    <div *ngIf="isLoading" class="spinner">
+      Cargando - FUTURO SPINNER
     </div>
 
     <div *ngIf="searchResults.length > 0">
@@ -47,6 +64,16 @@
       {{ movie.title }}
     </div>
 
-    <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    <button class="btn" type="submit">
+      <strong>CREAR</strong>
+      <div class="container-stars">
+        <div class="stars"></div>
+      </div>
+
+      <div class="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
   </form>
 </div>
