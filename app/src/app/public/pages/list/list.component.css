@@ -40,7 +40,7 @@
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
   color: white;
-  box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0.3em rgba(255, 255, 255, 0.2);
   font-weight: 700;
 }
 
@@ -148,7 +148,7 @@ strong {
 }
 
 .btn:active .circle {
-  background: #FE53BB;
+  background: #df399d;
 }
 
 #stars {

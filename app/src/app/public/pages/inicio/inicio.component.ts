@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class InicioComponent {
 
+  /*
+    Intentar hacer una llamada que devuelva random, sino:
+    1. Recibir todos los ciclos
+    2. Math.random() * ciclos.length
+    3. Mostrar el ciclo que corresponda (o los que correspondan)
+  */
+
 }

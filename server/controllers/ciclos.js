@@ -67,3 +67,30 @@ exports.getCiclo = async (req, res) => {
       res.json({ mensaje: 'Hubo un error al obtener el ciclo.' });
     } 
   };
+
+  exports.getThreeRandomCiclos = async (req, res) => {
+    const uri = 'mongodb+srv://lu:lu@cluster0.gb4jbia.mongodb.net/MEAN'; // Reemplaza con tu propia URI de conexión a MongoDB
+  
+    try {
+      const client = new MongoClient(uri);
+      await client.connect();
+  
+      const database = client.db('MEAN');
+      const collection = database.collection('Ciclos');
+  
+      const randomCiclos = await collection.find().limit(3).toArray();
+  
+      res.json(randomCiclos);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Hubo un error al obtener los ciclos aleatorios.' });
+    } finally {
+      client.close();
+    }
+  };
+
+
+
+
+
+
