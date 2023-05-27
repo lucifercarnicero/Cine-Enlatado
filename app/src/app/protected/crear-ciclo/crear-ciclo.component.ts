@@ -67,6 +67,9 @@ export class CrearCicloComponent {
     const peliculas = this.selectedMovies.map((movie) => {
       const pelicula: Pelicula = {
         idExterno: movie.id,
+        image: movie.image,
+        title: movie.title,
+        descripcion: movie.description
       };
       return pelicula;
     });

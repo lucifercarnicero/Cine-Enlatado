@@ -1,5 +1,8 @@
 export class Pelicula {
   idExterno!: string;
+  image?: string | null;
+  title?: string | null;
+  descripcion?: string | null;
   // Otros campos si fueran necesarios
 }
 

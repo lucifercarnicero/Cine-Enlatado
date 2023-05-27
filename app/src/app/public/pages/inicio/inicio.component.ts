@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, forkJoin } from 'rxjs';
 import { CiclosService } from 'src/app/_services/ciclos.service';
+import { ImdbService } from 'src/app/_services/imdb-service.service';
 import { Ciclo } from 'src/app/interfaces/ciclo';
+import { Movie } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-inicio',
@@ -15,8 +18,10 @@ export class InicioComponent implements OnInit {
   idPeli: string = "";
   idExternos: string[] = [];
 
+
   constructor (
     private ciclosService: CiclosService,
+    private imdbService: ImdbService
   ) {
     this.ciclosService.obtenerCiclos().subscribe(
       data => {
@@ -71,9 +76,16 @@ export class InicioComponent implements OnInit {
     return idExternos;
   }
 
-  getMovieInformation(idExternos: string[]) {
-    // Aquí puedes llamar a la API para obtener información adicional de las películas utilizando los idExternos
-    // Puedes implementar la lógica para realizar las solicitudes a la API y mostrar la información en tu componente
+
+
+  getMovieInformation(idExternos: string[]): Observable<Movie[]> {
+    const observables: Observable<Movie>[] = [];
+
+    for (let i = 0; i < idExternos.length; i++) {
+      observables.push(this.imdbService.getMovie(idExternos[i]));
+    }
+
+    return forkJoin(observables);
   }
 
   /*

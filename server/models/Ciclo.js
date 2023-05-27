@@ -3,6 +3,9 @@ const { Schema } = mongoose;
 
 const peliculaSchema = new Schema({
     idExterno: String,
+    image: String,
+    title: String,
+    descripcion: String,
     // Otros campos si fueran necesarios
   });
 

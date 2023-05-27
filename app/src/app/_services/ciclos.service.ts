@@ -14,9 +14,9 @@ export class CiclosService {
   }
   */
 
-  crearCiclo(ciclo: CrearCiclo): Observable<CrearCiclo> {
+  crearCiclo(ciclo: CrearCiclo): Observable<any> {
     const url = `http://localhost:3000/api/ciclos/crear`;
-    return this.http.post<CrearCiclo>(url, ciclo);
+    return this.http.post(url, ciclo);
   }
 
 
