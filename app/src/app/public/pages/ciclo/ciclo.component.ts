@@ -34,8 +34,8 @@ export class CicloComponent implements OnInit {
     } );
   }
 
-  goList(): void {
-    this.router.navigate(['/home/list']);
+  goBack(): void {
+    this.location.back(); // Navegar a la página anterior
   }
 
 }

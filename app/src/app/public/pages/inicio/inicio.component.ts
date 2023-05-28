@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, forkJoin } from 'rxjs';
 import { CiclosService } from 'src/app/_services/ciclos.service';
 import { ImdbService } from 'src/app/_services/imdb-service.service';
@@ -22,6 +23,7 @@ export class InicioComponent implements OnInit {
 
   constructor (
     private ciclosService: CiclosService,
+    private router: Router,
 
   ) {
     this.ciclosService.obtenerCiclos().subscribe(
@@ -59,7 +61,12 @@ export class InicioComponent implements OnInit {
   }
 
 
-
+  goTo(id: string): void {
+    if (id) {
+      // Realiza la redirección o la lógica necesaria con el id
+      this.router.navigate(['home/ciclo', id]);
+    }
+  }
 
 
 

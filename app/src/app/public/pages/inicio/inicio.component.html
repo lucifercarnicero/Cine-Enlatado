@@ -12,9 +12,11 @@
 	<ul *ngFor="let index of ciclosRandom">
 		<li>
 			<div class="image_title">
-				<a href="#">{{ ciclos[index]?.nombre }}</a>
+				<a href="#">{{ ciclos[index]?.nombre | uppercase }}</a>
 			</div>
-			<a href="https://ibb.co/gGv6QS"><img src="{{ ciclos[index]?.peliculas?.[0]?.image }}" alt="transformers4_640x320" border="0"></a>
+
+      <img [src]="ciclos[index]?.peliculas?.[0]?.image" alt="{{ ciclos[index]?.nombre }}" border="0" (click)="goTo(ciclos[index]?._id || '')">
+
 		</li>
 
 	</ul>
