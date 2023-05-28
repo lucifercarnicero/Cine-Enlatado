@@ -40,10 +40,10 @@ body, html {
     background-image: url('./assets/images/scifi.jpg');
     */
 
-    background: linear-gradient(rgba(255, 255, 255, 0.2),
-              rgba(255, 255, 255, 0.2),
-              rgba(255, 255, 255, 0.2),
-              rgba(255, 255, 255, 0.2)),
+    background: linear-gradient(rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0.4),
+              rgba(255, 255, 255, 0.4)),
               url('./assets/images/scifi.jpg');
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,6 +1,21 @@
+<!--
+
 <div *ngFor="let index of ciclosRandom">
   <p>{{ ciclos[index]?.nombre }}</p>
   <p>{{ ciclos[index]?.descripcion }}</p>
   <p>{{ ciclos[index]?.peliculas?.[0]?.image }}</p>
 
+</div>
+
+-->
+<div class="accordion shadow-lg">
+	<ul *ngFor="let index of ciclosRandom">
+		<li>
+			<div class="image_title">
+				<a href="#">{{ ciclos[index]?.nombre }}</a>
+			</div>
+			<a href="https://ibb.co/gGv6QS"><img src="{{ ciclos[index]?.peliculas?.[0]?.image }}" alt="transformers4_640x320" border="0"></a>
+		</li>
+
+	</ul>
 </div>

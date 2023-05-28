@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrearCicloComponent } from './crear-ciclo/crear-ciclo.component';
 
+
 const routes: Routes = [
 
   {
     path:'',
     component: DashboardComponent,
     children: [
+
       {path:'crear', component: CrearCicloComponent},
       {path:'**', redirectTo:''}
     ]

@@ -9,6 +9,7 @@ import { AppModule } from '../app.module';
 import { SharedModule } from '../shared/shared.module';
 import { RandomComponent } from './pages/random/random.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 
@@ -23,7 +24,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
   imports: [
     CommonModule,
     PublicRoutingModule,
-    SharedModule
+    SharedModule,
+    CarouselModule
 
   ]
 })

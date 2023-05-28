@@ -45,7 +45,7 @@ export class InicioComponent implements OnInit {
   randomCiclos() {
     let ciclosRandom: number[] = [];
 
-    while (ciclosRandom.length < 3) {
+    while (ciclosRandom.length < 5) {
       let randomIndex = Math.floor(Math.random() * this.ciclosLength);
 
       if (!ciclosRandom.includes(randomIndex)) {
