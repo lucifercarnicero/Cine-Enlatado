@@ -94,7 +94,9 @@ export class CrearCicloComponent {
 
     this.searchForm.reset();
 
-    this.router.navigateByUrl('/home/list');
+    setTimeout(() => {
+      this.router.navigateByUrl('/home/list');
+    }, 2000);
   }
 
   goBack() {

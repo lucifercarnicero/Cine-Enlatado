@@ -14,7 +14,10 @@ export class ListComponent implements OnInit {
   ciclos: Ciclo[] = [];
 
   constructor(private ciclosService: CiclosService,
-    private router: Router) { }
+    private router: Router) {
+
+
+     }
 
   ngOnInit(): void {
     this.todosCiclos();

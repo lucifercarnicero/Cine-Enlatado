@@ -1,8 +1,6 @@
-CARRUSEL
+<div *ngFor="let index of ciclosRandom">
+  <p>{{ ciclos[index]?.nombre }}</p>
+  <p>{{ ciclos[index]?.descripcion }}</p>
+  <p>{{ ciclos[index]?.peliculas?.[0]?.image }}</p>
 
-<div class="container">
-  <div *ngFor="let index of ciclosRandom">
-    <p>{{ ciclos[index]?.nombre }}</p> <!-- Aquí puedes mostrar cualquier propiedad del ciclo -->
-  </div>
 </div>
-
