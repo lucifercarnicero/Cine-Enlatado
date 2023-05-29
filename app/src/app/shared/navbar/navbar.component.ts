@@ -23,7 +23,7 @@ export class NavbarComponent {
         { name: 'Listado', url: '../home/list' },
         { name: 'Random', url: '../home/random' },
         { name: 'User: '+username, url: '../dashboard/perfil' },
-        { name: 'Logout', url: '../auth/logout' } // Agregar la función logout en la propiedad "action"
+        { name: 'Logout', url: '../auth/logout' }
       ];
     } else {
       this.navbarItems = [
@@ -36,9 +36,11 @@ export class NavbarComponent {
   }
 
   logout(): void {
-    // Realiza la lógica de logout aquí
-    // Por ejemplo, limpiar los datos del usuario en localStorage y redirigir al usuario a la página de login
+
     localStorage.clear();
     this.router.navigate(['../home']);
   }
+
+  //añadir que si es admin la redirección de perfil sea a adminpanel o algo así
+  //el panel de admin un botón para ver todos los ciclos (y hacer crud) y todos los usuarios (y hacer crud)
 }
