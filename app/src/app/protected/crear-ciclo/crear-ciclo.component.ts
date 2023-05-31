@@ -102,4 +102,12 @@ export class CrearCicloComponent {
   goBack() {
     this.router.navigateByUrl('/home/list');
   }
+
+  removeFromForm(movie: Result) {
+    const index = this.selectedMovies.findIndex((m) => m.title === movie.title);
+    if (index !== -1) {
+      this.selectedMovies.splice(index, 1);
+    }
+  }
+
 }
