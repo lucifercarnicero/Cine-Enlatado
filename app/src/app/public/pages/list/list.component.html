@@ -14,6 +14,18 @@
     </button>
 
     <button class="btn" type="button" (click)="goCreate()">
+      <strong>MIS FAVORITOS</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
+
+    <button class="btn" type="button" (click)="goCreate()">
       <strong>CREAR</strong>
       <div id="container-stars">
         <div id="stars"></div>
@@ -28,8 +40,8 @@
 
   <div class="search-container">
     <input type="text" class="search-input" [(ngModel)]="filtroNombre" placeholder="Buscar en los ciclos..." />
-    <button class="search-button" (click)="filtrarCiclos()">Buscar</button>
-    <button (click)="limpiarBusqueda()">Limpiar</button>
+    <button class="search-button m-2" (click)="filtrarCiclos()">Buscar</button>
+    <button class="search-button" (click)="limpiarBusqueda()">Limpiar</button>
   </div>
 
   <div *ngIf="mostrarAlerta" class="alert alert-danger mt-3">Ningún ciclo encontrado</div>
