@@ -73,6 +73,22 @@ so total container width = 640 + 40*4 = 800px;
 default width = 800/5 = 160px;
 */
 
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+  margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+}
+
+h3 {
+  margin: auto;
+  padding: 1rem;
+  color: white;
+  text-shadow: 3px 3px  3px rgba(0, 0, 255, 0.575);
+}
+
+
 .accordion {
 	width: 1020px; height: 720px;
 	overflow: hidden;
@@ -100,6 +116,7 @@ default width = 800/5 = 160px;
 	display: block;
   height: 740px;
   width:470px;
+  cursor: pointer;
 }
 
 .image_title {
@@ -109,7 +126,7 @@ default width = 800/5 = 160px;
   width: 470px;
 
 }
-.image_title a {
+.image_title p {
 	display: block;
   text-align: center;
 	color: #fff;

@@ -8,16 +8,22 @@
 </div>
 
 -->
-<div class="accordion shadow-lg">
-	<ul *ngFor="let index of ciclosRandom">
-		<li>
-			<div class="image_title">
-				<a href="#">{{ ciclos[index]?.nombre | uppercase }}</a>
-			</div>
 
-      <img [src]="ciclos[index]?.peliculas?.[0]?.image" alt="{{ ciclos[index]?.nombre }}" border="0" (click)="goTo(ciclos[index]?._id || '')">
+<div class="accordion-container">
+  <h3>Ciclos que te pueden interesar...</h3>
 
-		</li>
+  <div class="accordion shadow-lg">
+    <ul *ngFor="let index of ciclosRandom">
+      <li>
+        <div class="image_title">
+          <p>{{ ciclos[index]?.nombre | uppercase }}
+            <br>
+            <small>{{ ciclos[index]?.descripcion }}</small>
+          </p>
+        </div>
 
-	</ul>
+        <img [src]="ciclos[index]?.peliculas?.[0]?.image" alt="{{ ciclos[index]?.nombre }}" border="0" (click)="goTo(ciclos[index]?._id || '')">
+      </li>
+    </ul>
+  </div>
 </div>

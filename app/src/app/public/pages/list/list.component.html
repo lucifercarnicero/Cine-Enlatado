@@ -19,31 +19,51 @@
 
 <div class="container">
 
-    <div class="col-12 d-flex justify-content-end mb-2">
-      <button class="btn" type="button" (click)="goCreate()">
-        <strong>CREAR</strong>
-        <div id="container-stars">
-          <div id="stars"></div>
-        </div>
+  <div class="col-12 d-flex justify-content-evenly mb-2">
+    <button class="btn" type="button" (click)="goCreate()">
+      <strong>MIS CICLOS</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
 
-        <div id="glow">
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </div>
-      </button>
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
+
+    <button class="btn" type="button" (click)="goCreate()">
+      <strong>CREAR</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
+  </div>
+
+
+
+  <div class="row mt-3">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <input type="text" placeholder="Buscar ciclos..." class="search-input">
+      <button class="search-button" type="button">Buscar</button>
     </div>
+  </div>
 
   <div class="row">
     <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mb-2" *ngFor="let ciclo of ciclos">
       <div class="myCard" (click)="goCiclo(ciclo._id)">
         <div class="innerCard">
             <div class="frontSide">
-                <p class="title">{{ ciclo.nombre| titlecase }}</p>
-                <p>Hover Me</p>
+                <img src="{{ciclo?.peliculas?.[0]?.image }}" alt="">
             </div>
             <div class="backSide">
-                <p class="title">BACK SIDE</p>
-                <p>Leave Me</p>
+                <p class="title">{{ ciclo.nombre| titlecase }}</p>
+                <p>{{ ciclo.descripcion | titlecase }}</p>
             </div>
         </div>
       </div>
