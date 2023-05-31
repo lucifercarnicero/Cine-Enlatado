@@ -20,14 +20,7 @@
   </div>
   <div class="row" *ngIf="ciclo">
 
-    <ul>
-      <li *ngFor="let pelicula of ciclo.peliculas">
-        {{ pelicula.title }}
-      </li>
-    </ul>
-
-
-    <div class="row">
+    <div class="row mt-2 mb-3">
       <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mb-2" *ngFor="let pelicula of ciclo.peliculas">
         <div class="myCard">
           <div class="innerCard">
@@ -44,6 +37,13 @@
     </div>
   </div>
   <div class="row">
-    <p>{{ ciclo?.descripcion }}</p>
+    <div>
+      <h4>Descripción</h4>
+      <div class="container p-2">
+        <p>{{ ciclo?.descripcion }}</p>
+      </div>
+
+    </div>
+
   </div>
 </div>
