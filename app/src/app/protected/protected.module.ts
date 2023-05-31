@@ -7,6 +7,7 @@ import { CrearCicloComponent } from './crear-ciclo/crear-ciclo.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -15,6 +16,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     DashboardComponent,
     CrearCicloComponent,
     PerfilComponent,
+    AdminComponent,
 
   ],
   imports: [

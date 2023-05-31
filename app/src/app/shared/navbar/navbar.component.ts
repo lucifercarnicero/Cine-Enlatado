@@ -17,7 +17,13 @@ export class NavbarComponent {
 
   constructor(private router: Router) {
     const username = localStorage.getItem('name');
+    const isAdmin = localStorage.getItem('esAdmin');
+
+    console.log(typeof isAdmin);
+
     if (username) {
+
+      if (isAdmin === 'false') {
       this.navbarItems = [
         { name: 'Home', url: '' },
         { name: 'Listado', url: '../home/list' },
@@ -25,6 +31,16 @@ export class NavbarComponent {
         { name: 'User: '+username, url: '../dashboard/perfil' },
         { name: 'Logout', url: '../auth/logout' }
       ];
+    } else {
+      this.navbarItems = [
+        { name: 'Home', url: '' },
+        { name: 'Listado', url: '../home/list' },
+        { name: 'Random', url: '../home/random' },
+        { name: 'User: '+username, url: '../dashboard/admin' },
+        { name: 'Logout', url: '../auth/logout' }
+      ];
+    }
+
     } else {
       this.navbarItems = [
         { name: 'Home', url: '' },

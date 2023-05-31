@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrearCicloComponent } from './crear-ciclo/crear-ciclo.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { AdminComponent } from './admin/admin.component';
+import { IsAdminGuard } from '../guards/is-admin.guard';
 
 
 const routes: Routes = [
@@ -12,6 +14,9 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {path:'perfil', component: PerfilComponent},
+      {path:'admin',
+      canActivate: [IsAdminGuard],
+      component: AdminComponent},
       {path:'crear', component: CrearCicloComponent},
       {path:'**', redirectTo:''}
     ]
