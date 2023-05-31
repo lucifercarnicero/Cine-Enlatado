@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { RandomComponent } from './pages/random/random.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +26,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     CommonModule,
     PublicRoutingModule,
     SharedModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule
 
   ]
 })

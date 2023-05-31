@@ -1,22 +1,3 @@
-<!--
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let ciclo of ciclos" >
-      <div class="card shadow m-3 " (click)="showCiclo(ciclo._id)">
-        <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top" [alt]="ciclo.nombre" />
-        <div class="card-body">
-          <h5 class="card-title"><strong>{{ ciclo.nombre| titlecase }}</strong></h5>
-          <p class="card-text">{{ ciclo.descripcion }}</p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
--->
-
 <div class="container">
 
   <div class="col-12 d-flex justify-content-evenly mb-2">
@@ -45,32 +26,56 @@
     </button>
   </div>
 
+  <div class="search-container">
+    <input type="text" class="search-input" [(ngModel)]="filtroNombre" placeholder="Buscar en los ciclos..." />
+    <button class="search-button" (click)="filtrarCiclos()">Buscar</button>
+    <button (click)="limpiarBusqueda()">Limpiar</button>
+  </div>
 
+  <div *ngIf="mostrarAlerta" class="alert alert-danger mt-3">Ningún ciclo encontrado</div>
 
-  <div class="row mt-3">
-    <div class="col-12 d-flex justify-content-center align-items-center">
-      <input type="text" placeholder="Buscar ciclos..." class="search-input">
-      <button class="search-button" type="button">Buscar</button>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mb-2" *ngFor="let ciclo of getCiclosForPage()">
+      <div class="myCard" (click)="goCiclo(ciclo._id)">
+        <div class="innerCard">
+          <div class="frontSide">
+            <img src="{{ciclo?.peliculas?.[0]?.image }}" alt="">
+          </div>
+          <div class="backSide">
+            <p class="title">{{ ciclo.nombre| titlecase }}</p>
+            <p>{{ ciclo.descripcion | titlecase }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mb-2" *ngFor="let ciclo of ciclos">
-      <div class="myCard" (click)="goCiclo(ciclo._id)">
-        <div class="innerCard">
-            <div class="frontSide">
-                <img src="{{ciclo?.peliculas?.[0]?.image }}" alt="">
-            </div>
-            <div class="backSide">
-                <p class="title">{{ ciclo.nombre| titlecase }}</p>
-                <p>{{ ciclo.descripcion | titlecase }}</p>
-            </div>
-        </div>
-      </div>
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center mt-4">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="onPageChange(currentPage - 1)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <li class="page-item" *ngFor="let page of getPaginationArray()">
+        <a class="page-link" (click)="onPageChange(page)" [class.active]="currentPage === page">{{ page }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <a class="page-link" (click)="onPageChange(currentPage + 1)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-      </div>
-  </div>
 </div>
+
+
+
+
+
 
 
 

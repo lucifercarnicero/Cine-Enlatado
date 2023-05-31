@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CiclosService } from 'src/app/_services/ciclos.service';
@@ -9,15 +8,15 @@ import { Ciclo } from 'src/app/interfaces/ciclo';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-
 export class ListComponent implements OnInit {
   ciclos: Ciclo[] = [];
+  filtroNombre = '';
+  originalCiclos: Ciclo[] = [];
+  mostrarAlerta = false;
+  currentPage = 1;
+  itemsPerPage = 8;
 
-  constructor(private ciclosService: CiclosService,
-    private router: Router) {
-
-
-     }
+  constructor(private ciclosService: CiclosService, private router: Router) {}
 
   ngOnInit(): void {
     this.todosCiclos();
@@ -27,6 +26,7 @@ export class ListComponent implements OnInit {
     this.ciclosService.obtenerCiclos().subscribe(
       (ciclos) => {
         this.ciclos = ciclos;
+        this.originalCiclos = ciclos; // Store the original list
         console.log(this.ciclos);
       },
       (error) => console.log(error)
@@ -35,8 +35,7 @@ export class ListComponent implements OnInit {
 
   showCiclo(id: string) {
     console.log(id);
-
-    //añadir a service buscar por ID el ciclo
+    // Add logic to search for ciclo by ID in the service
   }
 
   goCiclo(id: string) {
@@ -47,4 +46,44 @@ export class ListComponent implements OnInit {
     this.router.navigate(['/dashboard/crear']);
   }
 
+  filtrarCiclos() {
+    if (this.filtroNombre.trim() !== '') {
+      const filtro = this.filtroNombre.toLowerCase();
+      this.ciclos = this.originalCiclos.filter((ciclo) =>
+        ciclo.nombre.toLowerCase().includes(filtro)
+      );
+    } else {
+      this.ciclos = this.originalCiclos; // Revert back to the original list
+    }
+
+    this.mostrarAlerta = this.ciclos.length === 0; // Set mostrarAlerta based on the filtered ciclos
+
+    // Reset pagination to first page
+    this.currentPage = 1;
+  }
+
+  limpiarBusqueda() {
+    this.filtroNombre = '';
+    this.ciclos = this.originalCiclos; // Display all ciclos again
+    this.mostrarAlerta = false; // Hide the alert
+    this.currentPage = 1; // Reset pagination to first page
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.ciclos.length / this.itemsPerPage);
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+  }
+
+  getCiclosForPage(): Ciclo[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.ciclos.slice(startIndex, endIndex);
+  }
+
+  getPaginationArray(): number[] {
+    return Array.from({ length: this.getTotalPages() }, (_, index) => index + 1);
+  }
 }
