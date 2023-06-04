@@ -11,7 +11,7 @@ const peliculaSchema = new Schema({
 
 const likeSchema = new Schema({
   usuario: { type: Schema.Types.ObjectId, ref: 'Usuario' },
-  fecha: Date
+  
 });
 
 const cicloSchema = new Schema({
@@ -19,7 +19,8 @@ const cicloSchema = new Schema({
   descripcion: String,
   peliculas: [peliculaSchema],
   autor: { type: Schema.Types.ObjectId, ref: 'Usuario' },
-  likes: [likeSchema]
+  likes: [likeSchema],
+  numLikes: Number
 });
 
 module.exports = mongoose.model('Ciclo', cicloSchema);

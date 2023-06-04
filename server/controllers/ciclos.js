@@ -1,5 +1,6 @@
 const Ciclo = require('../models/Ciclo');
 
+
 exports.crearCiclo = async (req, res) => {
   try {
     const nuevoCiclo = new Ciclo(req.body);
@@ -68,7 +69,35 @@ exports.getCiclo = async (req, res) => {
     } 
   };
 
+
+  exports.like = async (req, res) => {
+    try {
+      const cicloId = req.params.id;
+      const usuarioId = req.body.usuarioId;
   
+      // ¿Ciclo existe?
+      const ciclo = await Ciclo.findById(cicloId);
+      if (!ciclo) {
+        return res.status(404).json({ mensaje: 'Ciclo no encontrado' });
+      }
+  
+      // ¿Está el usuario ya en la lista?
+      const usuarioYaDioLike = ciclo.likes.some(like => like.usuario?.equals(usuarioId));
+      if (usuarioYaDioLike) {
+        return res.status(400).json({ mensaje: 'El usuario ya ha dado like a este ciclo' });
+      }
+  
+      // Si pasa todo lo anterior, añado
+      ciclo.likes.push({ usuario: usuarioId });
+      ciclo.numLikes = ciclo.likes.length;
+      await ciclo.save();
+  
+      res.status(200).json({ mensaje: 'Like añadido correctamente' });
+    } catch (error) {
+      console.error('Error al añadir like:', error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+  };
 
 
 
