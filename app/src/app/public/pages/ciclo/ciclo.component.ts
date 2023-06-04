@@ -71,5 +71,9 @@ export class CicloComponent implements OnInit {
     }
   }
 
+  imageError(event: any) {
+    event.target.src = '../../assets/images/error.jpg';
+  }
+
 
 }

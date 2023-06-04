@@ -38,7 +38,7 @@
         <div class="myCard">
           <div class="innerCard">
             <div class="frontSide">
-              <img src="{{ pelicula.image }}" alt="">
+              <img src="{{ pelicula.image }}" alt="" (error)="imageError($event)">
             </div>
             <div class="backSide">
               <p class="title">{{ pelicula.title| titlecase }}</p>
