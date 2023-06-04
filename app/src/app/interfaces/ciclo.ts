@@ -17,6 +17,7 @@ export class Ciclo {
   likes?: Like[];
   nombre!: string;
   peliculas?: Pelicula[];
+  numLikes?: number;
   __v!: number;
   _id!: string;
 }

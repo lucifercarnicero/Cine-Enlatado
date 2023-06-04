@@ -10,19 +10,19 @@
 -->
 
 <div class="accordion-container">
-  <h3>Ciclos que te pueden interesar...</h3>
+  <h2>TOP 5 Ciclos...</h2>
 
   <div class="accordion shadow-lg">
-    <ul *ngFor="let index of ciclosRandom">
+    <ul *ngFor="let ciclo of ciclos">
       <li>
         <div class="image_title">
-          <p>{{ ciclos[index]?.nombre | uppercase }}
+          <p>{{ ciclo.nombre | uppercase }}
             <br>
-            <small>{{ ciclos[index]?.descripcion }}</small>
+            <small>{{ ciclo.descripcion }}</small>
           </p>
         </div>
 
-        <img [src]="ciclos[index]?.peliculas?.[0]?.image" alt="{{ ciclos[index]?.nombre }}" border="0" (click)="goTo(ciclos[index]?._id || '')">
+        <img [src]="ciclo.peliculas?.[0]?.image" alt="{{ ciclo?.nombre }}" border="0" (click)="goTo(ciclo?._id || '')">
 
       </li>
     </ul>

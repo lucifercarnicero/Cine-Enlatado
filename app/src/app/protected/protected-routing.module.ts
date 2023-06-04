@@ -5,6 +5,7 @@ import { CrearCicloComponent } from './crear-ciclo/crear-ciclo.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AdminComponent } from './admin/admin.component';
 import { IsAdminGuard } from '../guards/is-admin.guard';
+import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path:'admin',
       canActivate: [IsAdminGuard],
       component: AdminComponent},
+      {path:'mis-ciclos', component: CiclosUserComponent},
       {path:'crear', component: CrearCicloComponent},
       {path:'**', redirectTo:''}
     ]

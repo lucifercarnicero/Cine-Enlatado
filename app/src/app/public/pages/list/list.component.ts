@@ -116,4 +116,8 @@ export class ListComponent implements OnInit {
       this.todosCiclos();
     }
   }
+
+  misCiclos() {
+    this.router.navigate(['/dashboard/mis-ciclos']);
+  }
 }

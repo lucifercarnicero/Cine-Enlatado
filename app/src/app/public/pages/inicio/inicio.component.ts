@@ -28,14 +28,14 @@ export class InicioComponent implements OnInit {
   ) {
     this.ciclosService.obtenerCiclos().subscribe(
       data => {
-        console.log(data);
         this.ciclos = data;
-        this.ciclosLength = data.length; // Asignar la longitud de los ciclos
+        this.ciclosLength = data.length;
 
-        this.ciclosRandom = this.randomCiclos(); // Llamar a randomCiclos() después de recibir los ciclos
+        // Ordenar los ciclos por numLikes de mayor a menor
+        this.ciclos.sort((a, b) => (b.numLikes || 0) - (a.numLikes || 0));
 
-
-
+        // Obtener solo los cinco primeros ciclos
+        this.ciclos = this.ciclos.slice(0, 5);
       }
     );
   }

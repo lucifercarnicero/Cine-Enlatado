@@ -1,3 +1,17 @@
+.text-white {
+  color: white;
+}
+
+.text-shadow {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.705);
+}
+
+.form-ciclo{
+  background-color: rgba(255, 255, 255, 0.308);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+
 .btn {
   display: flex;
   justify-content: center;

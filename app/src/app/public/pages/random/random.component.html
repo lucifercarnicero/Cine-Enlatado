@@ -1,31 +1,65 @@
-
-
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <button class="btn btn-danger">
-        ¿Qué ver?
-      </button>
+  <div class="d-flex justify-content-around">
+    <button class="btn" type="button" (click)="otroRandom()">
+      <strong>OTRO CICLO</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
+    <button class="btn" type="button" (click)="goBack()">
+      <strong>VOLVER</strong>
+      <div id="container-stars">
+        <div id="stars"></div>
+      </div>
+
+      <div id="glow">
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </button>
+
+
+  </div>
+</div>
+
+<div class="info container p-3 mt-4">
+  <div class="row d-flex align-items-center">
+    <div class="col-6">
+      <h2>{{ selectedCiclo?.nombre | titlecase }}</h2>
     </div>
-    <div class="col">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
-          Western
-        </label>
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
-          Terror
-        </label>
-        <label class="form-check-label">
-          <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
-          Dramah
-        </label>
+  </div>
+
+  <div class="row" *ngIf="selectedCiclo">
+    <div class="row mt-2 mb-3">
+      <div class="col-lg-3 col-md-4 col-sm-6 mt-3 mb-2" *ngFor="let pelicula of selectedCiclo.peliculas">
+        <div class="myCard">
+          <div class="innerCard">
+            <div class="frontSide">
+              <img src="{{ pelicula.image }}" alt="" (error)="imageError($event)">
+            </div>
+            <div class="backSide">
+              <p class="title">{{ pelicula.title | titlecase }}</p>
+              <p>{{ pelicula.descripcion | titlecase }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="row">
-    FICHA DE CICLO
+    <div>
+      <h4>Descripción</h4>
+      <div class="container p-2">
+        <p>{{ selectedCiclo?.descripcion }}</p>
+      </div>
+    </div>
   </div>
 </div>
+
+
