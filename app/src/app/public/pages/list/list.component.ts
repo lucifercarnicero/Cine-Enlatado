@@ -15,6 +15,9 @@ export class ListComponent implements OnInit {
   mostrarAlerta = false;
   currentPage = 1;
   itemsPerPage = 8;
+  mostrarMisFavoritos = false;
+
+
 
   constructor(private ciclosService: CiclosService, private router: Router) {}
 
@@ -85,5 +88,32 @@ export class ListComponent implements OnInit {
 
   getPaginationArray(): number[] {
     return Array.from({ length: this.getTotalPages() }, (_, index) => index + 1);
+  }
+
+  misFavoritos() {
+    const userId = localStorage.getItem("id");
+
+    if (!userId) {
+      return; // Si no se encuentra la id del usuario, no se realiza la filtración
+    }
+
+    this.ciclos = this.originalCiclos.filter((ciclo) =>
+      ciclo.likes?.some((like) => like.usuario === userId)
+    );
+
+    // Restablecer otras variables y propiedades según sea necesario
+    this.filtroNombre = ''; // Restablecer el filtro de nombre
+    this.mostrarAlerta = false; // Restablecer la alerta
+    this.currentPage = 1; // Restablecer la paginación
+  }
+
+  cambiarVista() {
+    this.mostrarMisFavoritos = !this.mostrarMisFavoritos;
+
+    if (this.mostrarMisFavoritos) {
+      this.misFavoritos();
+    } else {
+      this.todosCiclos();
+    }
   }
 }

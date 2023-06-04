@@ -13,8 +13,8 @@
       </div>
     </button>
 
-    <button class="btn" type="button" (click)="goCreate()">
-      <strong>MIS FAVORITOS</strong>
+    <button class="btn" type="button" (click)="cambiarVista()">
+      <strong>{{ mostrarMisFavoritos ? 'TODOS' : 'FAVORITOS' }}</strong>
       <div id="container-stars">
         <div id="stars"></div>
       </div>
