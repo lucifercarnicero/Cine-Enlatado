@@ -14,6 +14,7 @@ export class CicloComponent implements OnInit {
 
   ciclo?: Ciclo;
 
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -38,4 +39,16 @@ export class CicloComponent implements OnInit {
     this.location.back(); // Navegar a la página anterior
   }
 
+  like() {
+    const usuarioId = localStorage.getItem('id'); // Obtener la ID del usuario activo del localStorage
+
+
+    if (this.ciclo?.likes?.some(like => like.usuario === usuarioId)) {
+      // La ID del usuario activo ya existe en this.ciclo.likes
+      console.log('dislike');
+    } else {
+      // La ID del usuario activo no existe en this.ciclo.likes
+      console.log('like');
+  }
+}
 }
