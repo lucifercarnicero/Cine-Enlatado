@@ -1,9 +1,23 @@
 .info{
   background-color: rgba(255, 255, 255, 0.7);
 }
-button.liked {
-  background-color: green;
-  color: white;
+.custom-button {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  background: linear-gradient(to right, #e07f47a1, #1e14a17a);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+}
+
+.custom-button i {
+  text-shadow: 0 0 6px white;
+}
+
+.custom-button:hover {
+  transform: scale(1.2);
 }
 
 .btn {

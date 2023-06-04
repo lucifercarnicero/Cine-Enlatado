@@ -92,7 +92,7 @@ exports.getCiclo = async (req, res) => {
       ciclo.numLikes = ciclo.likes.length;
       await ciclo.save();
   
-      res.status(200).json({ mensaje: 'Like añadido correctamente' });
+      res.status(200).json({ mensaje: 'Like añadido correctamente',ciclo: ciclo });
     } catch (error) {
       console.error('Error al añadir like:', error);
       res.status(500).json({ mensaje: 'Error interno del servidor' });
@@ -121,7 +121,7 @@ exports.getCiclo = async (req, res) => {
       ciclo.numLikes = ciclo.likes.length;
       await ciclo.save();
   
-      res.status(200).json({ mensaje: 'Dislike realizado correctamente' });
+      res.status(200).json({ mensaje: 'Dislike realizado correctamente',ciclo: ciclo });
     } catch (error) {
       console.error('Error al realizar dislike:', error);
       res.status(500).json({ mensaje: 'Error interno del servidor' });

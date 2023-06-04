@@ -20,8 +20,13 @@
       <h2>{{ ciclo?.nombre | titlecase }}</h2>
     </div>
     <div class="col-6 d-flex justify-content-end">
-      <button (click)="like()">
-        like
+      <button (click)="like()" class="custom-button">
+        <ng-container *ngIf="isLiked">
+          <i class="fa-solid fa-minus"></i>
+        </ng-container>
+        <ng-container *ngIf="!isLiked">
+          <i class="fa-solid fa-plus"></i>
+        </ng-container>
       </button>
     </div>
 

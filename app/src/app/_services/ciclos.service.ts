@@ -40,4 +40,15 @@ export class CiclosService {
     return this.http.get<Ciclo>(`http://localhost:3000/api/ciclos/get/${id}`);
   }
 
+  likeCiclo(idCiclo:string, usuarioId: string): Observable<any> {
+    const url = `http://localhost:3000/api/ciclos/like/${idCiclo}`;
+    return this.http.post(url, { usuarioId }); // Enviar el objeto correctamente envuelto
+  }
+
+  dislikeCiclo(idCiclo: string, usuarioId: string): Observable<any> {
+    const url = `http://localhost:3000/api/ciclos/dislike/${idCiclo}`;
+    return this.http.post(url, { usuarioId });
+  }
+
+
 }
