@@ -99,6 +99,35 @@ exports.getCiclo = async (req, res) => {
     }
   };
 
+  exports.dislike = async (req, res) => {
+    try {
+      const cicloId = req.params.id;
+      const usuarioId = req.body.usuarioId;
+  
+      
+      const ciclo = await Ciclo.findById(cicloId);
+      if (!ciclo) {
+        return res.status(404).json({ mensaje: 'Ciclo no encontrado' });
+      }
+  
+      
+      const likeIndex = ciclo.likes.findIndex(like => like.usuario?.equals(usuarioId));
+      if (likeIndex === -1) {
+        return res.status(400).json({ mensaje: 'El usuario no ha dado like a este ciclo' });
+      }
+  
+      
+      ciclo.likes.splice(likeIndex, 1);
+      ciclo.numLikes = ciclo.likes.length;
+      await ciclo.save();
+  
+      res.status(200).json({ mensaje: 'Dislike realizado correctamente' });
+    } catch (error) {
+      console.error('Error al realizar dislike:', error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+  };
+  
 
 
 

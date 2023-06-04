@@ -10,7 +10,7 @@ router.get('/buscar', ciclosController.buscarCiclos);
 router.get('/obtener', ciclosController.obtenerCiclos);
 router.get('/get/:id', ciclosController.getCiclo);
 router.post('/like/:id', ciclosController.like);
-
+router.post('/dislike/:id', ciclosController.dislike);
 
 
 module.exports = router;
