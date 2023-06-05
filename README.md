@@ -6,6 +6,7 @@
 Usuarios:
   - Email: user@user.com Password:123123
   - Email: admin@admin.com Password:123123
+
 Las películas vienen por la API de imdb: https://imdb-api.com/api#SearchMovie-header
 
 
