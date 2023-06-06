@@ -11,6 +11,7 @@ router.get('/obtener', ciclosController.obtenerCiclos);
 router.get('/get/:id', ciclosController.getCiclo);
 router.post('/like/:id', ciclosController.like);
 router.post('/dislike/:id', ciclosController.dislike);
+router.get('/get/autor/:id', ciclosController.getCiclosByAutor);
 
 
 module.exports = router;

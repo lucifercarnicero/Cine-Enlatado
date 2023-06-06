@@ -2,25 +2,53 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+
         <th scope="col">Nombre</th>
         <th scope="col">Descripción</th>
         <th scope="col">Likes</th>
       </tr>
     </thead>
-    <tbody class="table-group-divider" *ngFor="let ciclo of ciclos; let i = index">
-      <tr>
-        <th scope="row">{{i + 1}}</th>
-        <td>{{ciclo.nombre}}</td>
-        <td>{{ciclo.descripcion}}</td>
-        <td>{{ciclo.numLikes}}</td>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let ciclo of paginatedCiclos">
+
+        <td>{{ ciclo.nombre }}</td>
+        <td>{{ ciclo.descripcion }}</td>
+        <td>{{ ciclo.numLikes }}</td>
         <td>
-          <button class="btn btn-default" (click)="borrar(ciclo._id)"><i class="fa-solid fa-trash"></i></button>
+          <button class="btn btn-default" (click)="borrar(ciclo._id)">
+            <i class="fa-solid fa-trash" style="color: #ff0000;"></i>
+          </button>
         </td>
       </tr>
-
     </tbody>
   </table>
+
+
 </div>
-
-
+<nav *ngIf="totalPages > 1">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="goToPage(1)" aria-label="Primera página">
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <button class="page-link" (click)="goToPage(currentPage - 1)" aria-label="Página anterior">
+        <span aria-hidden="true">&lsaquo;</span>
+      </button>
+    </li>
+    <li class="page-item" *ngFor="let page of totalPagesArray" [class.active]="currentPage === page">
+      <button class="page-link" (click)="goToPage(page)">{{ page }}</button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="goToPage(currentPage + 1)" aria-label="Página siguiente">
+        <span aria-hidden="true">&rsaquo;</span>
+      </button>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === totalPages">
+      <button class="page-link" (click)="goToPage(totalPages)" aria-label="Última página">
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>

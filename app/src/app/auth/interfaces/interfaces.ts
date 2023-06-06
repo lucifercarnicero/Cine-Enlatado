@@ -9,7 +9,7 @@ export interface AuthResponse {
 }
 
 export interface Usuario {
-  uid:string;
+  _id:string;
   name:string;
   email:string;
   esAdmin:boolean;

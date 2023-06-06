@@ -21,6 +21,8 @@ import { LogoutComponent } from './pages/logout/logout.component';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule
-  ]
+  ],
+
+
 })
 export class AuthModule { }

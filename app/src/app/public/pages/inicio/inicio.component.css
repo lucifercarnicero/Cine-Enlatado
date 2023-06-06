@@ -86,12 +86,9 @@ h2 {
   padding: 1rem;
   font-size: 2rem;
   font-weight: bold;
-  background-image: none; /* Elimina el fondo */
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  -webkit-text-fill-color: white;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(5px);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #ff8c00, #5050c8); /* Gradiente de colores */
   animation: glow 3s infinite;
   border: none; /* Elimina el borde */
   border-radius: 1rem;
@@ -101,6 +98,7 @@ h2 {
   position: relative;
   z-index: 1;
 }
+
 
 @keyframes glow {
   0% {

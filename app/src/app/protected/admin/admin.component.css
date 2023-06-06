@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+div[fxShow] {
+  position: relative;
+}
+
+div[fxShow].void {
+  display: block !important;
+}
+
+div[fxShow].void,
+div[fxShow].fadeInOut {
+  animation-duration: 0.3s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+}
+
+div[fxShow].void {
+  opacity: 0;
+}
+
+div[fxShow].fadeInOut {
+  opacity: 1;
+}
+
+.fadeInOut.ng-animating {
+  opacity: 0;
+}

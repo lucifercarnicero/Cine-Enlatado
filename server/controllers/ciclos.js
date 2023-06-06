@@ -128,6 +128,16 @@ exports.getCiclo = async (req, res) => {
     }
   };
   
+  exports.getCiclosByAutor = async (req, res) => {
+    try {
+      const autorId = req.params.id;
+      const ciclos = await Ciclo.find({ autor: autorId }).populate('autor');
+      res.json(ciclos);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Error al obtener los ciclos del autor' });
+    }
+  };
 
 
 

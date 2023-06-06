@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { CiclosService } from './_services/ciclos.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { CiclosService } from './_services/ciclos.service';
     SharedModule,
     NgSelectModule,
     FormsModule,
+    BrowserAnimationsModule
 
 
   ],

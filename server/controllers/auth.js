@@ -137,38 +137,53 @@ const renewToken = async(req, res = response) => {
     })
 }
 
-const nombreAutor = async (req, res = response) => {
-    const { uid } = req.params; // Suponiendo que la ID del autor está en los parámetros de la ruta
-  
+const editar = async (req, res) => {
     try {
-      // Leer la base de datos para obtener el nombre
-      const dbUser = await Usuario.findById(uid);
+      const id = req.params.id;
+      const { name, email, password } = req.body;
   
-      if (!dbUser) {
-        return res.status(404).json({
-          ok: false,
-          msg: 'No se encontró ningún usuario con la ID proporcionada',
-        });
-      }
+      // Hashear la nueva contraseña
+      const salt = bcrypt.genSaltSync();
+      const hashedPassword = bcrypt.hashSync(password, salt);
   
-      return res.json({
-        ok: true,
-        name: dbUser.name,
-      });
+      await Usuario.findByIdAndUpdate(id, { name, email, password: hashedPassword }, { new: true });
+  
+      res.status(200).json({ message: 'Usuario actualizado exitosamente' });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({
-        ok: false,
-        msg: 'Error al obtener el nombre del autor',
-      });
+      res.status(500).json({ error: 'Error al actualizar el usuario' });
     }
   };
-  
+
+  const getUsers = async (req, res) => {
+    try {
+        const users = await Usuario.find();
+        res.status(200).json(users);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error al obtener los usuarios' });
+    }
+    };
+
+const deleteUser = async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Usuario.findByIdAndDelete(id);
+        res.status(200).json({ message: 'Usuario eliminado exitosamente' });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error al eliminar el usuario' });
+    }
+
+};
+
 
 
 module.exports = {
     crearUsuario,
     loginUsuario,
     renewToken,
-    nombreAutor
+    editar,
+    getUsers,
+    deleteUser
 }

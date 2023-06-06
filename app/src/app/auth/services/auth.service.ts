@@ -38,7 +38,7 @@ export class AuthService {
             this._ususario = {
               email: resp.email!,
               name: resp.name!,
-              uid: resp.uid!,
+              _id: resp.uid!,
               esAdmin: resp.esAdmin!
             };
           }
@@ -68,7 +68,7 @@ export class AuthService {
             this._ususario = {
               email: resp.email!,
               name: resp.name!,
-              uid: resp.uid!,
+              _id: resp.uid!,
               esAdmin: resp.esAdmin!
             };
           }
@@ -97,7 +97,7 @@ export class AuthService {
           this._ususario = {
             email: resp.email,
             name: resp.name,
-            uid: resp.uid,
+            _id: resp.uid,
             esAdmin: resp.esAdmin
           };
 
@@ -109,5 +109,17 @@ export class AuthService {
 
   logout() {
     localStorage.clear();
+  }
+
+  editarUsuario(id: string, usuario: Usuario): Observable<Usuario> {
+    return this.http.patch<Usuario>(`http://localhost:3000/api/auth/edit/${id}`, usuario);
+  }
+
+  getUsers(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>('http://localhost:3000/api/auth/users');
+  }
+
+  eliminar(id: string) {
+    return this.http.delete(`http://localhost:3000/api/auth/delete/${id}`);
   }
 }

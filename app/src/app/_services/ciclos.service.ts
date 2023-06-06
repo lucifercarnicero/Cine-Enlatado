@@ -25,7 +25,7 @@ export class CiclosService {
   }
 
   editarCiclo(id: string, ciclo: Ciclo): Observable<any> {
-    return this.http.put<any>(`http://localhost:3000/ciclos/${id}`, ciclo);
+    return this.http.put<any>(`http://localhost:3000/api/ciclos/editar/${id}`, ciclo);
   }
 
   buscarCiclos(nombre: string): Observable<Ciclo[]> {

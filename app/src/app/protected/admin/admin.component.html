@@ -11,14 +11,14 @@
   </div>
 </div>
 
-<div class="container" >
+<div class="container">
+  <div [@fadeInOut]="visible">
+    <div *ngIf="visible === 'users'">
+      <app-users></app-users>
+    </div>
 
-  <div *ngIf="visible === 'users'">
-    <app-users></app-users>
+    <div *ngIf="visible === 'ciclos'">
+      <app-ciclos></app-ciclos>
+    </div>
   </div>
-
-  <div *ngIf="visible === 'ciclos'">
-    <app-ciclos></app-ciclos>
-  </div>
-
 </div>
