@@ -50,6 +50,10 @@ export class CiclosService {
     return this.http.post(url, { usuarioId });
   }
 
+  getCiclosAutor(idAutor: string): Observable<Ciclo[]> {
+    return this.http.get<Ciclo[]>(`http://localhost:3000/api/ciclos/get/autor/${idAutor}`);
+  }
+
 
 
 

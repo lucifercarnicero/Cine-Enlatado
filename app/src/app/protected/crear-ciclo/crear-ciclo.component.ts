@@ -5,7 +5,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { Ciclo, CrearCiclo, Pelicula } from 'src/app/interfaces/ciclo';
 import { CiclosService } from 'src/app/_services/ciclos.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-crear-ciclo',
@@ -22,7 +23,9 @@ export class CrearCicloComponent {
   constructor(
     private imdbService: ImdbService,
     private cicloService: CiclosService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location
   ) {
     this.searchForm = new FormGroup({
       nombre: new FormControl(''),
@@ -100,7 +103,7 @@ export class CrearCicloComponent {
   }
 
   goBack() {
-    this.router.navigateByUrl('/home/list');
+    this.location.back();
   }
 
   removeFromForm(movie: Result) {

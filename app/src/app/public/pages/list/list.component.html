@@ -1,41 +1,25 @@
 <div class="container">
 
-  <div class="col-12 d-flex justify-content-evenly mb-2">
-    <button class="btn" type="button" (click)="misCiclos()">
-      <strong>MIS CICLOS</strong>
-      <div id="container-stars">
-        <div id="stars"></div>
-      </div>
-
-      <div id="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
+  <div class="botones col-12 d-flex justify-content-evenly mb-2">
+    <button class="boton" type="button" (click)="misCiclos()">
+      <span>
+        MIS CICLOS
+      </span>
     </button>
 
-    <button class="btn" type="button" (click)="cambiarVista()">
-      <strong>{{ mostrarMisFavoritos ? 'TODOS' : 'FAVORITOS' }}</strong>
-      <div id="container-stars">
-        <div id="stars"></div>
-      </div>
-
-      <div id="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
+    <button class="boton" type="button" (click)="cambiarVista()">
+      <span>
+        {{ mostrarMisFavoritos ? 'TODOS' : 'FAVORITOS' }}
+      </span>
     </button>
 
-    <button class="btn" type="button" (click)="goCreate()">
-      <strong>CREAR</strong>
-      <div id="container-stars">
-        <div id="stars"></div>
-      </div>
-
-      <div id="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
+    <button class="boton" type="button" (click)="goCreate()">
+      <span>
+        CREAR
+      </span>
     </button>
+
+
   </div>
 
   <div class="search-container">

@@ -3,17 +3,13 @@
 
 
   <div class="col-12 d-flex justify-content-end mb-2">
-    <button class="btn" type="button" (click)="goBack()">
-      <strong>CREAR</strong>
-      <div class="container-stars">
-        <div class="stars"></div>
-      </div>
 
-      <div class="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
+    <button class="boton" type="button" (click)="goBack()">
+      <span>
+        VOLVER
+      </span>
     </button>
+
   </div>
 
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="form-ciclo rounded p-4">
@@ -36,18 +32,10 @@
           <input type="text" class="form-control" id="query" formControlName="query" placeholder="Escribe el título de la película...">
         </div>
         <div class="col-auto align-self-center mt-3">
-          <button class="btn" type="button" (click)="searchMovies()">
-            <strong>BUSCAR</strong>
-            <div class="container-stars">
-              <div class="stars"></div>
-            </div>
-
-            <div class="glow">
-              <div class="circle"></div>
-              <div class="circle"></div>
-            </div>
-
-
+          <button class="boton" type="button" (click)="searchMovies()">
+            <span>
+              BUSCAR
+            </span>
           </button>
         </div>
       </div>
@@ -108,16 +96,12 @@
     </div>
 
 
-    <button class="btn mt-4" type="submit">
-      <strong>CREAR</strong>
-      <div class="container-stars">
-        <div class="stars"></div>
-      </div>
-
-      <div class="glow">
-        <div class="circle"></div>
-        <div class="circle"></div>
-      </div>
+    <button class="boton mt-4" type="submit">
+      <span>
+        CREAR
+      </span>
     </button>
+
+
   </form>
 </div>
