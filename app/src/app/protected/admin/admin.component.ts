@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  visible: String = 'ciclos';
+
+  showCiclos(){
+    this.visible='ciclos';
+  }
+
+  showUsers(){
+
+    this.visible='users';
+  }
+
 }

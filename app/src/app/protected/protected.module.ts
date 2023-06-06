@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AdminComponent } from './admin/admin.component';
 import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
+import { UsersComponent } from './admin/components/users/users.component';
+import { CiclosComponent } from './admin/components/ciclos/ciclos.component';
 
 
 
@@ -19,6 +21,8 @@ import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
     PerfilComponent,
     AdminComponent,
     CiclosUserComponent,
+    UsersComponent,
+    CiclosComponent,
 
   ],
   imports: [

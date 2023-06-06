@@ -21,7 +21,7 @@ export class CiclosService {
 
 
   eliminarCiclo(id: string): Observable<any> {
-    return this.http.delete<any>(`http://localhost:3000/ciclos/${id}`);
+    return this.http.delete<any>(`http://localhost:3000/api/ciclos/eliminar/${id}`);
   }
 
   editarCiclo(id: string, ciclo: Ciclo): Observable<any> {
@@ -49,6 +49,8 @@ export class CiclosService {
     const url = `http://localhost:3000/api/ciclos/dislike/${idCiclo}`;
     return this.http.post(url, { usuarioId });
   }
+
+
 
 
 }

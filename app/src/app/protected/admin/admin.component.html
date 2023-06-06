@@ -1,1 +1,24 @@
-<p>admin works!</p>
+<div class="container mb-3">
+  <div class="row">
+    <div class="col d-flex justify-content-around">
+      <div>
+        <button class="btn btn-primary" (click)="showCiclos()">Ciclos</button>
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="showUsers()">Users</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" >
+
+  <div *ngIf="visible === 'users'">
+    <app-users></app-users>
+  </div>
+
+  <div *ngIf="visible === 'ciclos'">
+    <app-ciclos></app-ciclos>
+  </div>
+
+</div>

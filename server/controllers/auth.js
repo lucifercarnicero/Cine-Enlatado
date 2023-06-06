@@ -137,8 +137,38 @@ const renewToken = async(req, res = response) => {
     })
 }
 
+const nombreAutor = async (req, res = response) => {
+    const { uid } = req.params; // Suponiendo que la ID del autor está en los parámetros de la ruta
+  
+    try {
+      // Leer la base de datos para obtener el nombre
+      const dbUser = await Usuario.findById(uid);
+  
+      if (!dbUser) {
+        return res.status(404).json({
+          ok: false,
+          msg: 'No se encontró ningún usuario con la ID proporcionada',
+        });
+      }
+  
+      return res.json({
+        ok: true,
+        name: dbUser.name,
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({
+        ok: false,
+        msg: 'Error al obtener el nombre del autor',
+      });
+    }
+  };
+  
+
+
 module.exports = {
     crearUsuario,
     loginUsuario,
-    renewToken
+    renewToken,
+    nombreAutor
 }

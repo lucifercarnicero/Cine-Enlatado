@@ -84,15 +84,16 @@ default width = 800/5 = 160px;
 h2 {
   margin: auto;
   padding: 1rem;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
-  background-image: linear-gradient(45deg, rgba(255, 197, 110, 0.8), rgba(78, 168, 255, 0.8));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-image: none; /* Elimina el fondo */
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: white;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(5px);
   animation: glow 3s infinite;
+  border: none; /* Elimina el borde */
   border-radius: 1rem;
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4) inset;
   margin-bottom: 1rem;
@@ -100,8 +101,6 @@ h2 {
   position: relative;
   z-index: 1;
 }
-
-
 
 @keyframes glow {
   0% {
@@ -114,6 +113,7 @@ h2 {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   }
 }
+
 
 
 

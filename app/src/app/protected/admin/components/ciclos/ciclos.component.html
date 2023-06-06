@@ -1,0 +1,26 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Likes</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider" *ngFor="let ciclo of ciclos; let i = index">
+      <tr>
+        <th scope="row">{{i + 1}}</th>
+        <td>{{ciclo.nombre}}</td>
+        <td>{{ciclo.descripcion}}</td>
+        <td>{{ciclo.numLikes}}</td>
+        <td>
+          <button class="btn btn-default" (click)="borrar(ciclo._id)"><i class="fa-solid fa-trash"></i></button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
