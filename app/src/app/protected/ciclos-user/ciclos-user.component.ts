@@ -84,7 +84,7 @@ export class CiclosUserComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back(); // Navegar a la página anterior
+    this.router.navigateByUrl('/home/list');
   }
 
   editar(cicloId: string) {

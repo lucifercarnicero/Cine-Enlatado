@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ciclo, CrearCiclo } from '../interfaces/ciclo';
+import { Ciclo, CrearCiclo, EditarCiclo } from '../interfaces/ciclo';
 
 @Injectable({providedIn: 'root'})
 export class CiclosService {
@@ -24,8 +24,8 @@ export class CiclosService {
     return this.http.delete<any>(`http://localhost:3000/api/ciclos/eliminar/${id}`);
   }
 
-  editarCiclo(id: string, ciclo: Ciclo): Observable<any> {
-    return this.http.put<any>(`http://localhost:3000/api/ciclos/editar/${id}`, ciclo);
+  editarCiclo(id: string, ciclo: EditarCiclo): Observable<any> {
+    return this.http.patch<any>(`http://localhost:3000/api/ciclos/editar/${id}`, ciclo);
   }
 
   buscarCiclos(nombre: string): Observable<Ciclo[]> {

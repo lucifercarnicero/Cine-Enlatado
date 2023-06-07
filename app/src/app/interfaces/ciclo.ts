@@ -26,3 +26,5 @@ export class Ciclo {
 
 export interface CrearCiclo extends Omit<Ciclo, '__v' | '_id'> {}
 
+export interface EditarCiclo extends Omit<Ciclo, '__v' | '_id' | 'likes' | 'autor' | 'numLikes'> {}
+

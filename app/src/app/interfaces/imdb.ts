@@ -7,7 +7,7 @@ export interface imdb {
 
 export interface Result {
   id:          string;
-  resultType:  Type;
+
   image:       string;
   title:       string;
   description: string;

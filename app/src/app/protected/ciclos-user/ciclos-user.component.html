@@ -40,49 +40,6 @@
             </td>
           </tr>
 
-          <!-- Acordeón del formulario de edición -->
-          <tr class="edit-form-row" *ngIf="editingState[ciclo._id]">
-            <td colspan="3">
-              <div class="edit-form-container">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" class="form-control" name="nombre" placeholder="{{ciclo.nombre}}">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="descripcion">Descripción:</label>
-                        <textarea id="descripcion" class="form-control" name="descripcion" placeholder="{{ciclo.descripcion}}"></textarea>
-                      </div>
-                    </div>
-
-                    <div class="col-md-8">
-                      <div class="form-group">
-                        <label>Películas:</label>
-                        <div *ngFor="let pelicula of ciclo.peliculas">
-                          <label>
-                            <input type="checkbox" [value]="pelicula" (change)="togglePelicula(pelicula)" [checked]="isPeliculaSeleccionada(pelicula)"> {{ pelicula.title }}
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-12 d-flex justify-content-center">
-                      <button type="submit" class="btn btn-primary" (click)="guardarFormulario(ciclo)">Guardar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-
-
-
-
-
 
         </ng-container>
       </tbody>
