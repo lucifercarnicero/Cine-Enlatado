@@ -165,6 +165,18 @@ const editar = async (req, res) => {
     }
     };
 
+const getUser = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const user = await Usuario.findById(id);
+        res.status(200).json(user);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error al obtener el usuario' });
+    }
+};
+
+
 const deleteUser = async (req, res) => {
     try {
         const id = req.params.id;
@@ -185,5 +197,6 @@ module.exports = {
     renewToken,
     editar,
     getUsers,
-    deleteUser
+    deleteUser,
+    getUser
 }

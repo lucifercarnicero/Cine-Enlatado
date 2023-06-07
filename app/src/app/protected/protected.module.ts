@@ -12,6 +12,7 @@ import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
 import { UsersComponent } from './admin/components/users/users.component';
 import { CiclosComponent } from './admin/components/ciclos/ciclos.component';
 import { EditarCicloComponent } from './editar-ciclo/editar-ciclo.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 
 
@@ -25,6 +26,7 @@ import { EditarCicloComponent } from './editar-ciclo/editar-ciclo.component';
     UsersComponent,
     CiclosComponent,
     EditarCicloComponent,
+    EditarUsuarioComponent,
 
   ],
   imports: [

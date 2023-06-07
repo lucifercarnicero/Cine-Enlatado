@@ -23,4 +23,5 @@ const cicloSchema = new Schema({
   numLikes: Number
 });
 
+
 module.exports = mongoose.model('Ciclo', cicloSchema);

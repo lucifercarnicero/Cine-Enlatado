@@ -122,4 +122,8 @@ export class AuthService {
   eliminar(id: string) {
     return this.http.delete(`http://localhost:3000/api/auth/delete/${id}`);
   }
+
+  getUsuario(id: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`http://localhost:3000/api/auth/user/${id}`);
+  }
 }

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { crearUsuario, loginUsuario, renewToken, editar, getUsers, deleteUser } = require('../controllers/auth');
+const { crearUsuario, loginUsuario, renewToken, editar, getUsers, deleteUser, getUser } = require('../controllers/auth');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
@@ -30,5 +30,6 @@ router.get('/renew', validarJWT,renewToken),
 router.patch('/edit/:id', editar)
 router.get('/users', getUsers)
 router.delete('/delete/:id', deleteUser)
+router.get('/user/:id', getUser)
 
 module.exports = router;

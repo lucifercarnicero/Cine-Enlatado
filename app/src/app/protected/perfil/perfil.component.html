@@ -1,2 +1,30 @@
-<p>perfil works!</p>
-<p>AQUÍ COSITAS DEL USER</p>
+<div class="container">
+  <div class="container">
+    <div class="d-flex justify-content-around">
+
+      <button class="boton" type="button" (click)="editarPerfil(user!._id)">
+        <span>
+          EDITAR
+        </span>
+      </button>
+
+      <button class="boton" type="button" (click)="goBack()">
+        <span>
+          VOLVER
+        </span>
+      </button>
+
+
+
+    </div>
+  </div>
+  <div class="container info mt-5">
+    <h5>Nombre de usuario</h5>
+    <p>{{user?.name}}</p>
+    <h5>Email</h5>
+    <p>{{user?.email}}</p>
+
+
+
+  </div>
+</div>
