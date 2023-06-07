@@ -3,6 +3,7 @@ export class Pelicula {
   image?: string | null;
   title?: string | null;
   descripcion?: string | null;
+
   // Otros campos si fueran necesarios
 }
 
@@ -20,6 +21,7 @@ export class Ciclo {
   numLikes?: number;
   __v!: number;
   _id!: string;
+  isEditing?: boolean;
 }
 
 export interface CrearCiclo extends Omit<Ciclo, '__v' | '_id'> {}

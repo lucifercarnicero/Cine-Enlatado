@@ -1,3 +1,48 @@
+.edit-form-row {
+  display: table-row; /* Cambiar display a table-row */
+}
+
+.edit-form-row.is-editing {
+  display: table-row;
+}
+
+.edit-form-row {
+  display: table-row;
+}
+
+.edit-form-row.is-editing {
+  display: table-row;
+}
+
+.edit-form-container {
+  display: flex;
+  flex-direction: column; /* Alinear verticalmente los elementos */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  margin-top: 1em; /* Ajustar margen superior */
+  margin-bottom: 1em; /* Ajustar margen inferior */
+}
+
+.edit-form-container .form-group {
+  width: 100%; /* Ajustar ancho al 100% */
+}
+
+.edit-form-container .form-group label {
+  display: block; /* Convertir las etiquetas en bloques para ocupar el ancho completo */
+}
+
+.edit-form-container .form-group input[type="text"],
+.edit-form-container .form-group textarea {
+  width: 100%; /* Ajustar ancho al 100% */
+}
+
+.edit-form-container .form-group .btn-primary {
+  margin-top: 1em; /* Ajustar margen superior */
+  margin-bottom: 1em; /* Ajustar margen inferior */
+}
+
+
+
 .tabla {
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(10px);

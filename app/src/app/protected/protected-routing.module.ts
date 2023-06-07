@@ -6,6 +6,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { AdminComponent } from './admin/admin.component';
 import { IsAdminGuard } from '../guards/is-admin.guard';
 import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
+import { EditarCicloComponent } from './editar-ciclo/editar-ciclo.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
       component: AdminComponent},
       {path:'mis-ciclos', component: CiclosUserComponent},
       {path:'crear', component: CrearCicloComponent},
+      {path:'editar/:id', component: EditarCicloComponent},
       {path:'**', redirectTo:''}
     ]
   },

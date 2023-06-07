@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CiclosService } from 'src/app/_services/ciclos.service';
-import { Ciclo } from 'src/app/interfaces/ciclo';
+import { Ciclo, Pelicula } from 'src/app/interfaces/ciclo';
 import Swal from 'sweetalert2';
 import { Location } from '@angular/common';
 
@@ -11,28 +11,30 @@ import { Location } from '@angular/common';
   styleUrls: ['./ciclos-user.component.css']
 })
 export class CiclosUserComponent implements OnInit {
-
   ciclos: Ciclo[] = [];
   paginatedCiclos: Ciclo[] = [];
   currentPage = 1;
   pageSize = 10;
   totalPagesArray: number[] = [];
+  editingState: { [cicloId: string]: boolean } = {}; // Estado de edición por ciclo
+  peliculasSeleccionadas: Pelicula[] = [];
 
-  constructor(private ciclosService: CiclosService,
-    private router:Router,
+  constructor(
+    private ciclosService: CiclosService,
+    private router: Router,
     private route: ActivatedRoute,
     private location: Location
-    ) {}
+  ) {}
 
-    ngOnInit(): void {
-      this.route.params.subscribe(params => {
-        const id = localStorage.getItem('id') || '';
-        this.ciclosService.getCiclosAutor(id).subscribe(ciclos => {
-          this.ciclos = ciclos;
-          this.updatePagination();
-        });
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      const id = localStorage.getItem('id') || '';
+      this.ciclosService.getCiclosAutor(id).subscribe((ciclos) => {
+        this.ciclos = ciclos;
+        this.updatePagination();
       });
-    }
+    });
+  }
 
   borrar(id: string) {
     Swal.fire({
@@ -44,10 +46,10 @@ export class CiclosUserComponent implements OnInit {
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, borrar',
       cancelButtonText: 'Cancelar'
-    }).then(result => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        this.ciclosService.eliminarCiclo(id).subscribe(response => {
-          this.ciclos = this.ciclos.filter(ciclo => ciclo._id !== id);
+        this.ciclosService.eliminarCiclo(id).subscribe((response) => {
+          this.ciclos = this.ciclos.filter((ciclo) => ciclo._id !== id);
           this.updatePagination();
         });
 
@@ -77,7 +79,6 @@ export class CiclosUserComponent implements OnInit {
     return Math.ceil(this.ciclos.length / this.pageSize);
   }
 
-
   goCreate() {
     this.router.navigate(['/dashboard/crear']);
   }
@@ -86,10 +87,46 @@ export class CiclosUserComponent implements OnInit {
     this.location.back(); // Navegar a la página anterior
   }
 
-  editar(id: string) {
-    //sweetalert edit
+  editar(cicloId: string) {
+    this.router.navigate(['/dashboard/editar/'+cicloId]);
   }
 
+  editarOld(cicloId: string) {
+    // Encuentra el objeto ciclo correspondiente por su ID
+    const ciclo = this.ciclos.find((c) => c._id === cicloId);
+    console.log(ciclo);
 
+    if (ciclo) {
+      // Cambia el estado de edición del ciclo
+      this.editingState[cicloId] = !this.editingState[cicloId];
 
+      // Copiar las películas del ciclo en el array de películas seleccionadas
+      this.peliculasSeleccionadas = ciclo.peliculas ? [...ciclo.peliculas] : [];
+    }
+  }
+
+  guardarFormulario(ciclo: Ciclo) {
+    const dataToSave: Ciclo = {
+      ...ciclo,
+      peliculas: this.peliculasSeleccionadas
+    };
+
+    alert(JSON.stringify(dataToSave));
+    console.log(this.peliculasSeleccionadas);
+    // Realizar la operación de guardado utilizando el objeto `dataToSave`
+  }
+
+  togglePelicula(pelicula: Pelicula) {
+    const peliculaIndex = this.peliculasSeleccionadas.findIndex((p) => p.idExterno === pelicula.idExterno);
+
+    if (peliculaIndex !== -1) {
+      this.peliculasSeleccionadas.splice(peliculaIndex, 1);
+    } else {
+      this.peliculasSeleccionadas.push(pelicula);
+    }
+  }
+
+  isPeliculaSeleccionada(pelicula: Pelicula) {
+    return this.peliculasSeleccionadas.some((p) => p.idExterno === pelicula.idExterno);
+  }
 }

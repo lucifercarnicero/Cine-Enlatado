@@ -5,12 +5,13 @@ import { ProtectedRoutingModule } from './protected-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrearCicloComponent } from './crear-ciclo/crear-ciclo.component';
 import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AdminComponent } from './admin/admin.component';
 import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
 import { UsersComponent } from './admin/components/users/users.component';
 import { CiclosComponent } from './admin/components/ciclos/ciclos.component';
+import { EditarCicloComponent } from './editar-ciclo/editar-ciclo.component';
 
 
 
@@ -23,13 +24,15 @@ import { CiclosComponent } from './admin/components/ciclos/ciclos.component';
     CiclosUserComponent,
     UsersComponent,
     CiclosComponent,
+    EditarCicloComponent,
 
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ProtectedModule { }
