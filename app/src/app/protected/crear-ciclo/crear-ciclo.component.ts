@@ -82,6 +82,7 @@ export class CrearCicloComponent {
       descripcion,
       peliculas,
       autor,
+      nombreAutor: localStorage.getItem('name') ?? ''
     };
 
     this.cicloService.crearCiclo(ciclo).subscribe(

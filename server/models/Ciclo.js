@@ -19,6 +19,7 @@ const cicloSchema = new Schema({
   descripcion: String,
   peliculas: [peliculaSchema],
   autor: { type: Schema.Types.ObjectId, ref: 'Usuario' },
+  nombreAutor: String,
   likes: [likeSchema],
   numLikes: Number
 });
