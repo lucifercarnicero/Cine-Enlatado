@@ -1,12 +1,13 @@
 import { ImdbService } from './../../_services/imdb-service.service';
 import { Component } from '@angular/core';
 import { imdb, Result } from '../../interfaces/imdb';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Ciclo, CrearCiclo, Pelicula } from 'src/app/interfaces/ciclo';
 import { CiclosService } from 'src/app/_services/ciclos.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-ciclo',
@@ -28,8 +29,8 @@ export class CrearCicloComponent {
     private location: Location
   ) {
     this.searchForm = new FormGroup({
-      nombre: new FormControl(''),
-      descripcion: new FormControl(''),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      descripcion: new FormControl('', [Validators.required, Validators.minLength(6)]),
       query: new FormControl('')
     });
   }
@@ -59,8 +60,17 @@ export class CrearCicloComponent {
   }
 
   onSubmit() {
+
+
+
     if (this.searchForm.invalid) {
       // Realizar acciones adicionales si el formulario es inválido (mostrar mensajes de error, etc.)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algunos campos son inválidos'
+      });
+
       return;
     }
 
@@ -95,6 +105,12 @@ export class CrearCicloComponent {
         // Mostrar mensaje de error al usuario o realizar acciones adicionales para manejar el error
       }
     );
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Ciclo creado',
+      text: 'El ciclo se ha creado correctamente'
+    });
 
     this.searchForm.reset();
 

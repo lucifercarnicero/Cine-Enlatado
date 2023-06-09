@@ -1,9 +1,9 @@
 <div class="container">
-  <h1 class="text-white text-shadow">Crear Ciclo</h1>
 
 
-  <div class="col-12 d-flex justify-content-end mb-2">
 
+  <div class="col-12 d-flex justify-content-around mb-2">
+    <h1 class="text-white text-shadow">Crear Ciclo</h1>
     <button class="boton" type="button" (click)="goBack()">
       <span>
         VOLVER
@@ -16,11 +16,31 @@
     <div class="form-group">
       <label for="nombre">Nombre</label>
       <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Escribe el nombre...">
+      <div *ngIf="searchForm.get('nombre')?.invalid && (searchForm.get('nombre')?.dirty || searchForm.get('nombre')?.touched)">
+        <div class="text-danger">
+          <div *ngIf="searchForm.get('nombre')?.errors?.['required']">
+            El nombre es requerido.
+          </div>
+          <div *ngIf="searchForm.get('nombre')?.errors?.['minlength']">
+            El nombre debe tener al menos 3 caracteres.
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="descripcion">Descripción</label>
       <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3" placeholder="Describe el ciclo..."></textarea>
+      <div *ngIf="searchForm.get('descripcion')?.invalid && (searchForm.get('descripcion')?.dirty || searchForm.get('descripcion')?.touched)">
+        <div class="text-danger">
+          <div *ngIf="searchForm.get('descripcion')?.errors?.['required']">
+            La descripción es requerida.
+          </div>
+          <div *ngIf="searchForm.get('descripcion')?.errors?.['minlength']">
+            La descripción debe tener al menos 6 caracteres.
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="form-group ">

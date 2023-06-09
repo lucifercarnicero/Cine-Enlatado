@@ -13,5 +13,9 @@ router.post('/like/:id', ciclosController.like);
 router.post('/dislike/:id', ciclosController.dislike);
 router.get('/get/autor/:id', ciclosController.getCiclosByAutor);
 
+// Rutas para comentarios
+//router.get('/coments', ciclosController.getComents);
+//router.post('/coments', ciclosController.addComent);
+
 
 module.exports = router;
