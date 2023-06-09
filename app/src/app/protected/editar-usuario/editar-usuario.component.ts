@@ -4,6 +4,7 @@ import { Usuario, UsuarioEdit } from 'src/app/auth/interfaces/interfaces';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -26,9 +27,9 @@ export class EditarUsuarioComponent implements OnInit {
   ) {
     this.formulario = this.formBuilder.group({
       email: ['', [Validators.email]],
-      name: [''],
-      password: [''],
-      confirmPassword: ['']
+      name: ['', [Validators.minLength(3)]],
+      password: ['', [Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.minLength(6)]]
     }, { validators: this.passwordMatchValidator });
   }
 
@@ -56,6 +57,7 @@ export class EditarUsuarioComponent implements OnInit {
 
       if (formData.name !== this.initialUser?.name) {
         userEdit.name = formData.name;
+        localStorage.setItem('name', formData.name!)
       }
 
       if (formData.email !== this.initialUser?.email) {
@@ -74,7 +76,8 @@ export class EditarUsuarioComponent implements OnInit {
           icon: 'success',
           title: 'Usuario editado correctamente',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          heightAuto: false
         });
         this.router.navigateByUrl('/protected/usuarios');
       }, (err) => {
@@ -82,6 +85,7 @@ export class EditarUsuarioComponent implements OnInit {
           icon: 'error',
           title: 'Oops...',
           text: err.error.msg,
+          heightAuto: false
         });
       });
 
@@ -91,6 +95,7 @@ export class EditarUsuarioComponent implements OnInit {
         icon: 'error',
         title: 'Oops...',
         text: 'Formulario inválido',
+        heightAuto: false
       });
       console.log('Formulario inválido');
     }
