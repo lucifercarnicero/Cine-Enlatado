@@ -140,13 +140,23 @@ const renewToken = async(req, res = response) => {
 const editar = async (req, res) => {
     try {
       const id = req.params.id;
-      const { name, email, password } = req.body;
+      const { name = '', email = '', password = '' } = req.body;
   
-      // Hashear la nueva contraseña
-      const salt = bcrypt.genSaltSync();
-      const hashedPassword = bcrypt.hashSync(password, salt);
+      // Verificar qué campos se han proporcionado
+      const updateFields = {};
+      if (name) {
+        updateFields.name = name;
+      }
+      if (email) {
+        updateFields.email = email;
+      }
+      if (password) {
+        const salt = bcrypt.genSaltSync();
+        const hashedPassword = bcrypt.hashSync(password, salt);
+        updateFields.password = hashedPassword;
+      }
   
-      await Usuario.findByIdAndUpdate(id, { name, email, password: hashedPassword }, { new: true });
+      await Usuario.findByIdAndUpdate(id, updateFields, { new: true });
   
       res.status(200).json({ message: 'Usuario actualizado exitosamente' });
     } catch (error) {
@@ -154,6 +164,7 @@ const editar = async (req, res) => {
       res.status(500).json({ error: 'Error al actualizar el usuario' });
     }
   };
+  
 
   const getUsers = async (req, res) => {
     try {

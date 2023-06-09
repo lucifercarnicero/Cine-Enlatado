@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AuthResponse, Usuario } from '../interfaces/interfaces';
+import { AuthResponse, Usuario, UsuarioEdit } from '../interfaces/interfaces';
 import { catchError, map, of, pipe, tap, Observable } from 'rxjs';
 
 @Injectable({
@@ -111,7 +111,7 @@ export class AuthService {
     localStorage.clear();
   }
 
-  editarUsuario(id: string, usuario: Usuario): Observable<Usuario> {
+  editarUsuario(id: string, usuario: UsuarioEdit) {
     return this.http.patch<Usuario>(`http://localhost:3000/api/auth/edit/${id}`, usuario);
   }
 

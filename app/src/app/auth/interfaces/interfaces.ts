@@ -15,3 +15,11 @@ export interface Usuario {
   esAdmin:boolean;
 
 }
+
+export interface UsuarioEdit {
+
+  name?:string;
+  email?:string;
+  password?:string;
+}
+
