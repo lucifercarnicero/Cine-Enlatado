@@ -121,7 +121,16 @@ export class EditarCicloComponent implements OnInit {
       (data) => {
         console.log(data);
         // Mostrar SweetAlert de éxito
-        Swal.fire('Éxito', 'Ciclo editado exitosamente', 'success');
+        Swal.fire({
+          title: 'Éxito',
+          text: 'Ciclo editado exitosamente',
+          icon: 'success',
+          timer: 3000,
+          timerProgressBar: true,
+          toast: true,
+          showConfirmButton: false,
+          heightAuto: false
+        });
         // Realizar acciones adicionales si es necesario
       },
       (error) => {

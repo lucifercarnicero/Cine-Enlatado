@@ -34,7 +34,8 @@ export class UsersComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
+      heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.authService.eliminar(id).subscribe(response => {
@@ -43,7 +44,20 @@ export class UsersComponent implements OnInit {
           this.updatePagination();
         });
 
-        Swal.fire('Borrado', 'El usuario ha sido borrado', 'success');
+        Swal.fire({
+          title: 'Borrado',
+          text: 'El usuario ha sido borrado',
+          icon: 'success',
+          timer: 3000,
+          timerProgressBar: true,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          customClass: {
+            popup: 'swal2-popup-highauto'
+          },
+          heightAuto: false
+        });
       }
     });
   }

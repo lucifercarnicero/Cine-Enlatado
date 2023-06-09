@@ -45,7 +45,8 @@ export class CiclosUserComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
+      heightAuto: false
     }).then((result) => {
       if (result.isConfirmed) {
         this.ciclosService.eliminarCiclo(id).subscribe((response) => {
@@ -53,7 +54,15 @@ export class CiclosUserComponent implements OnInit {
           this.updatePagination();
         });
 
-        Swal.fire('Borrado', 'El ciclo ha sido borrado', 'success');
+        Swal.fire({
+          title: 'Borrado',
+          text: 'El ciclo ha sido borrado',
+          icon: 'success',
+          heightAuto: false, // Agrega esta línea para desactivar el heightAuto
+
+
+        });
+
       }
     });
   }

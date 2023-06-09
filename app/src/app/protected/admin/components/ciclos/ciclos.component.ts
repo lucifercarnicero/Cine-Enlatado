@@ -33,7 +33,8 @@ export class CiclosComponent implements OnInit {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
+      heightAuto: false
     }).then(result => {
       if (result.isConfirmed) {
         this.ciclosService.eliminarCiclo(id).subscribe(response => {
