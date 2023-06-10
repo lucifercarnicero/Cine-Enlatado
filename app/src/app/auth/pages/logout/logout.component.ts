@@ -8,9 +8,6 @@ import { Router } from '@angular/router';
 export class LogoutComponent {
 
   constructor(private router: Router) {
-    // Realiza la lógica de logout aquí
-    // Por ejemplo, limpiar los datos del usuario en localStorage y redirigir al usuario a la página de inicio
-
     localStorage.clear();
     this.router.navigate(['/']);
   }

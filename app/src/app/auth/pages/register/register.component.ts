@@ -14,8 +14,8 @@ export class RegisterComponent {
 
   miFormulario = this.fb.group({
 
-    name: ['',[Validators.required, Validators.minLength(3)]],
-    email: ['',[Validators.required, Validators.email]],
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
 
   })
@@ -41,7 +41,7 @@ export class RegisterComponent {
 
 
           if(ok === true) {
-            //ok debe ser true para navegar, si pongo sólo true al existir redirige aunque sea false
+            Swal.fire('Bienvenido', 'Cuenta creada correctamente. Disfruta', 'success')
             this.router.navigateByUrl('/home')
           } else {
             //TODO: mostrar mensaje de error

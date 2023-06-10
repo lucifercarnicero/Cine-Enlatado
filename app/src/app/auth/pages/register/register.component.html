@@ -2,35 +2,54 @@
   [formGroup]="miFormulario"
   (ngSubmit)="registro()">
 
+  <a routerLink="/" class="txt2">
+    Volver
+  </a>
+
   <span class="login100-form-title p-b-49">
       Nuevo Usuario
   </span>
 
   <div class="wrap-input100 m-b-23">
     <span class="label-input100">Nombre</span>
-    <input class="input100"
-           type="text"
-           formControlName="name"
-           placeholder="Ingrese su nombre">
+    <input class="input100" type="text" formControlName="name" placeholder="Ingrese su nombre">
     <span class="focus-input100"></span>
+  </div>
+  <div *ngIf="miFormulario.get('name')?.invalid && (miFormulario.get('name')?.dirty || miFormulario.get('name')?.touched)" class="text-danger">
+    <div *ngIf="miFormulario.get('name')?.errors?.['required']">
+      Nombre es requerido.
+    </div>
+    <div *ngIf="miFormulario.get('name')?.errors?.['minlength']">
+      El nombre debe tener al menos 3 caracteres.
+    </div>
   </div>
 
   <div class="wrap-input100 m-b-23">
-      <span class="label-input100">Email</span>
-      <input class="input100"
-             type="email"
-             formControlName="email"
-             placeholder="Ingrese su email">
-      <span class="focus-input100"></span>
+    <span class="label-input100">Email</span>
+    <input class="input100" type="email" formControlName="email" placeholder="Ingrese su email">
+    <span class="focus-input100"></span>
+  </div>
+  <div *ngIf="miFormulario.get('email')?.invalid && (miFormulario.get('email')?.dirty || miFormulario.get('email')?.touched)" class="text-danger">
+    <div *ngIf="miFormulario.get('email')?.errors?.['required']">
+      Email es requerido.
+    </div>
+    <div *ngIf="miFormulario.get('email')?.errors?.['email']">
+      Email inválido.
+    </div>
   </div>
 
   <div class="wrap-input100">
-      <span class="label-input100">Password</span>
-      <input class="input100"
-             type="password"
-             formControlName="password"
-             placeholder="Ingrese su contraseña">
-      <span class="focus-input100"></span>
+    <span class="label-input100">Password</span>
+    <input class="input100" type="password" formControlName="password" placeholder="Ingrese su contraseña">
+    <span class="focus-input100"></span>
+  </div>
+  <div *ngIf="miFormulario.get('password')?.invalid && (miFormulario.get('password')?.dirty || miFormulario.get('password')?.touched)" class="text-danger">
+    <div *ngIf="miFormulario.get('password')?.errors?.['required']">
+      Contraseña es requerida.
+    </div>
+    <div *ngIf="miFormulario.get('password')?.errors?.['minlength']">
+      La contraseña debe tener al menos 6 caracteres.
+    </div>
   </div>
 
   <div class="text-right p-t-8 p-b-31"></div>

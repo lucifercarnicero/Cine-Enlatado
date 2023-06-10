@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
 
   miFormulario: FormGroup = this.fb.group({
-    email: ['',[Validators.required, Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
   })
 
@@ -33,7 +33,7 @@ export class LoginComponent {
 
 
         if(ok === true) {
-          //ok debe ser true para navegar, si pongo sólo true al existir redirige aunque sea false
+          Swal.fire('Bienvenido', 'Has iniciado sesión correctamente', 'success')
           this.router.navigateByUrl('/home')
         } else {
           //TODO: mostrar mensaje de error
