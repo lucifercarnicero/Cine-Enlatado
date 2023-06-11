@@ -4,6 +4,7 @@
 3. Iniciar la app con ```ng serve```
 
 URL publica AWS: **http://54.86.221.92:3000/**
+
 Usuarios:
   - Email: user@user.com Password:123123
   - Email: admin@admin.com Password:123123
