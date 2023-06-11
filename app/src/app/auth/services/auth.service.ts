@@ -19,7 +19,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string) {
-    const url = `${this.baseUrl}/auth`;
+    const url = `${this.baseUrl}/api/auth`;
     const body = { email, password };
 
     return this.http.post<AuthResponse>(url, body)
@@ -49,7 +49,7 @@ export class AuthService {
   }
 
   registro(name: string, email: string, password: string) {
-    const url = `${this.baseUrl}/auth/new`;
+    const url = `${this.baseUrl}/api/auth/new`;
     const body = { name, email, password };
 
     return this.http.post<AuthResponse>(url, body)
@@ -79,7 +79,7 @@ export class AuthService {
   }
 
   validarToken(): Observable<boolean> {
-    const url = `${this.baseUrl}/auth/renew`;
+    const url = `${this.baseUrl}/api/auth/renew`;
     const headers = new HttpHeaders().set('x-token', localStorage.getItem('token') || '');
 
     return this.http.get<AuthResponse>(url, { headers })
@@ -112,18 +112,18 @@ export class AuthService {
   }
 
   editarUsuario(id: string, usuario: UsuarioEdit) {
-    return this.http.patch<Usuario>(`http://localhost:3000/api/auth/edit/${id}`, usuario);
+    return this.http.patch<Usuario>(`${this.baseUrl}/api/auth/edit/${id}`, usuario);
   }
 
   getUsers(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>('http://localhost:3000/api/auth/users');
+    return this.http.get<Usuario[]>(`${this.baseUrl}/api/auth/users`);
   }
 
   eliminar(id: string) {
-    return this.http.delete(`http://localhost:3000/api/auth/delete/${id}`);
+    return this.http.delete(`${this.baseUrl}/api/auth/delete/${id}`);
   }
 
   getUsuario(id: string): Observable<Usuario> {
-    return this.http.get<Usuario>(`http://localhost:3000/api/auth/user/${id}`);
+    return this.http.get<Usuario>(`${this.baseUrl}/api/auth/user/${id}`);
   }
 }
