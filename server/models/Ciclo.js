@@ -14,6 +14,11 @@ const likeSchema = new Schema({
   
 });
 
+const comentarioSchema = new Schema({
+  usuario: String,
+  comentario: String
+});
+
 const cicloSchema = new Schema({
   nombre: String,
   descripcion: String,
@@ -21,8 +26,11 @@ const cicloSchema = new Schema({
   autor: { type: Schema.Types.ObjectId, ref: 'Usuario' },
   nombreAutor: String,
   likes: [likeSchema],
-  numLikes: Number
+  numLikes: Number,
+  comentarios: [comentarioSchema]
 });
+
+
 
 
 module.exports = mongoose.model('Ciclo', cicloSchema);

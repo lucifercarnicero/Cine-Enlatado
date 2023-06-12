@@ -12,6 +12,8 @@ router.get('/get/:id', ciclosController.getCiclo);
 router.post('/like/:id', ciclosController.like);
 router.post('/dislike/:id', ciclosController.dislike);
 router.get('/get/autor/:id', ciclosController.getCiclosByAutor);
+router.get('/get/comentarios/:id', ciclosController.getComentarios);
+router.post('/add/comentario/:id', ciclosController.addComentario);
 
 // Rutas para comentarios
 //router.get('/coments', ciclosController.getComents);

@@ -12,6 +12,11 @@ export class Like {
   fecha?: Date;
 }
 
+export class Comentario {
+  usuario?: string;
+  comentario?: string;
+}
+
 export class Ciclo {
   autor!: string;
   descripcion!: string;
@@ -22,6 +27,7 @@ export class Ciclo {
   __v!: number;
   _id!: string;
   nombreAutor?: string;
+  comentarios?: Comentario[];
 }
 
 export interface CrearCiclo extends Omit<Ciclo, '__v' | '_id'> {

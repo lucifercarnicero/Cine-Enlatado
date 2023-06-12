@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { CiclosService } from 'src/app/_services/ciclos.service';
 import { Ciclo } from 'src/app/interfaces/ciclo';
 import { Location } from '@angular/common';
+import { Comentario } from '../../../interfaces/ciclo';
 
 @Component({
   selector: 'app-ciclo',
@@ -14,6 +15,7 @@ export class CicloComponent implements OnInit {
 
   ciclo?: Ciclo;
   isLiked: boolean = false;
+  comentario: string = '';
 
 
   constructor(
@@ -80,5 +82,27 @@ export class CicloComponent implements OnInit {
     this.router.navigate(['/home/pelicula/'+id]);
   }
 
+  getToken(): any {
+    return window.localStorage.getItem('token');
+  }
+
+  enviarComentario() {
+    const usuario = localStorage.getItem('name');
+
+    const nuevoComentario: Comentario = {
+      usuario: usuario || '',
+      comentario: this.comentario
+    };
+
+    console.log(nuevoComentario);
+
+    this.ciclosService.comentarCiclo((this.ciclo as Ciclo)?._id!, nuevoComentario).subscribe((response) => {
+      if (response.ciclo) {
+        this.ciclo = response.ciclo;
+        this.comentario = '';
+      }
+    });
+
+  }
 
 }

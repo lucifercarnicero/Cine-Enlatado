@@ -140,6 +140,46 @@ exports.getCiclo = async (req, res) => {
   };
 
 
+  exports.getComentarios = async (req, res) => {
+    
+    try {
+      const cicloId = req.params.id;
+      const ciclo = await Ciclo.findById(cicloId);
+      if (!ciclo) {
+        return res.status(404).json({ mensaje: 'Ciclo no encontrado' });
+      }
+  
+      res.status(200).json({ 
+        
+        comentarios: ciclo.comentarios,
+        
+        });
+    } catch (error) {
+      console.error('Error al obtener comentarios:', error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+  }
 
+  exports.addComentario = async (req, res) => {
+
+    try {
+      const cicloId = req.params.id;
+      const usuarioId = req.body.usuario;
+      const comentario = req.body.comentario;
+  
+      const ciclo = await Ciclo.findById(cicloId);
+      if (!ciclo) {
+        return res.status(404).json({ mensaje: 'Ciclo no encontrado' });
+      }
+  
+      ciclo.comentarios.push({ usuario: usuarioId, comentario });
+      await ciclo.save();
+  
+      res.status(200).json({ mensaje: 'Comentario añadido correctamente',ciclo: ciclo });
+    } catch (error) {
+      console.error('Error al añadir comentario:', error);
+      res.status(500).json({ mensaje: 'Error interno del servidor' });
+    }
+  }
 
 

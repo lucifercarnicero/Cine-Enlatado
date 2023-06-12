@@ -52,3 +52,39 @@
     </div>
   </div>
 </div>
+
+
+<div class="comentarios container p-3 mt-3" *ngIf="getToken() !== null">
+  <h3>Comentarios: </h3>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <form id="comment-form" class="text-center" (submit)="enviarComentario()">
+          <div class="form-group">
+            <textarea id="comment" name="comment" class="form-control" [(ngModel)]="comentario" required></textarea>
+          </div>
+
+          <button class="boton mt-3" type="submit">
+            <span>
+              ENVIAR
+            </span>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container comentarios mt-2 p-3 text-white" *ngFor="let comentario of ciclo?.comentarios">
+
+    <div>
+      {{ comentario?.usuario | uppercase }} :
+    </div>
+    <div class="p-2">
+      {{ comentario?.comentario }}
+    </div>
+  </div>
+
+
+</div>

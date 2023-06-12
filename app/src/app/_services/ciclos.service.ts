@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ciclo, CrearCiclo, EditarCiclo } from '../interfaces/ciclo';
+import { Ciclo, Comentario, CrearCiclo, EditarCiclo } from '../interfaces/ciclo';
 import { environment } from 'src/environments/environment';
 
 @Injectable({providedIn: 'root'})
@@ -51,6 +51,11 @@ export class CiclosService {
 
   getCiclosAutor(idAutor: string): Observable<Ciclo[]> {
     return this.http.get<Ciclo[]>(`${this.baseUrl}/api/ciclos/get/autor/${idAutor}`);
+  }
+
+  comentarCiclo(idCiclo: string, comentario: Comentario): Observable<any> {
+    const url = `${this.baseUrl}/api/ciclos/add/comentario/${idCiclo}`;
+    return this.http.post(url, comentario);
   }
 
 

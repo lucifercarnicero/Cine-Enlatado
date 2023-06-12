@@ -1,3 +1,8 @@
+usuario-comment p {
+  color: white;
+}
+
+
 .info {
   /* glass effect */
   background-color: rgba(255, 255, 255, 0.308);
@@ -143,5 +148,12 @@
 
 .botones {
   margin-top: -1.5em;
+}
+
+.comentarios {
+  /* glass effect */
+  background-color: rgba(26, 39, 155, 0.308);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
 }
 
