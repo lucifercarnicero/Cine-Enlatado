@@ -12,3 +12,9 @@ Usuarios:
 Las películas vienen por la API de imdb: https://imdb-api.com/api#SearchMovie-header
 
 
+Desplegar en AWS:
+
+  1º Bajarse clave
+  2º Acceder por consola SSH
+  3º ir a la ruta 'cd Cine-Enlatado/server'
+  4º usar el comando ```pm2 start npm -- run dev```
