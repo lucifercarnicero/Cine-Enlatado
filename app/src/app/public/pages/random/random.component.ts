@@ -52,4 +52,8 @@ export class RandomComponent implements OnInit {
   imageError(event: any) {
     event.target.src = '../../assets/images/error.jpg';
   }
+
+  goMovie (id: string) {
+    this.router.navigate(['/home/pelicula/'+id]);
+  }
 }

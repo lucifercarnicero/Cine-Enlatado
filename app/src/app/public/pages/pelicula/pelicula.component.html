@@ -1,8 +1,38 @@
-<div class="container">
+
+<div class="container mb-2">
+  <div class="col-md-12 d-flex justify-content-end">
+    <button class="boton" type="button" (click)="goBack()">
+      <span>
+        VOLVER
+      </span>
+    </button>
+  </div>
+</div>
+<div class="container info">
 
   <div class="row p-4">
     <div class="col-md-6">
-      Lateral
+     <p>
+       <strong>Titulo:</strong> <br> {{ movie?.title }}
+     </p>
+     <p>
+      <strong>Año:</strong> <br> {{ movie?.year }}
+     </p>
+     <p>
+      <strong>Director: </strong> <br> {{movie?.directors}}
+     </p>
+     <p>
+      <strong>Actores:</strong> <br> {{movie?.stars}}
+     </p>
+     <p>
+      <Strong>Premios: </Strong> <br> {{movie?.awards}}
+     </p>
+     <p>
+      <Strong>Genero: </Strong> <br> {{movie?.genres}}
+     </p>
+     <p>
+      <Strong>Valoración: </Strong> <br> {{movie?.imDbRating}}
+     </p>
     </div>
     <div class="col-md-6">
       <img src="{{movie?.image}}" alt="{{ movie?.title }}">
@@ -13,6 +43,7 @@
 
     <div class="col-md-12">
       <h4>Argumento</h4>
+      <p class="mt-2">{{ movie?.plot }}</p>
     </div>
 
   </div>

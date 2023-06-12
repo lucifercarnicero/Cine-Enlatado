@@ -36,7 +36,9 @@ export class PeliculaComponent implements OnInit {
   }
 
 
-
+  goBack(): void {
+    window.history.back();
+  }
 
 
 
