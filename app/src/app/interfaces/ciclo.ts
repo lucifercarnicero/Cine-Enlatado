@@ -21,7 +21,7 @@ export class Ciclo {
   numLikes?: number;
   __v!: number;
   _id!: string;
-  isEditing?: boolean;
+  nombreAutor?: string;
 }
 
 export interface CrearCiclo extends Omit<Ciclo, '__v' | '_id'> {

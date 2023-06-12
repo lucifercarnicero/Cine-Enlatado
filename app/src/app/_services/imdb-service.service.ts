@@ -19,7 +19,7 @@ export class ImdbService {
   constructor(private http: HttpClient) { }
 
   getMovie(id: string): Observable<Movie> {
-    return this.http.get<Movie>(`${url}/Title/k_0z6jxv2i/${id}`);
+    return this.http.get<Movie>(`https://imdb-api.com/en/API/Title/k_1z3yuh2d/${id}`);
   }
 
   searchMovie(title: string): Observable<imdb> {

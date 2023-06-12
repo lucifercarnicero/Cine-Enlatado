@@ -76,4 +76,9 @@ export class CicloComponent implements OnInit {
   }
 
 
+  goMovie (id: string) {
+    this.router.navigate(['/home/pelicula/'+id]);
+  }
+
+
 }

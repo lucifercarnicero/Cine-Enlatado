@@ -11,6 +11,7 @@ import { RandomComponent } from './pages/random/random.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FormsModule } from '@angular/forms';
+import { PeliculaComponent } from './pages/pelicula/pelicula.component';
 
 
 
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     CicloComponent,
     RandomComponent,
-    InicioComponent
+    InicioComponent,
+    PeliculaComponent
   ],
   imports: [
     CommonModule,

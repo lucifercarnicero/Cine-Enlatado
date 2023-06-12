@@ -5,6 +5,8 @@ import { ListComponent } from './pages/list/list.component';
 import { CicloComponent } from './pages/ciclo/ciclo.component';
 import { RandomComponent } from './pages/random/random.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { Pelicula } from '../interfaces/ciclo';
+import { PeliculaComponent } from './pages/pelicula/pelicula.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
       { path: '', component: InicioComponent },
       { path: 'list', component: ListComponent }, // home/list
       { path: 'ciclo/:id', component: CicloComponent }, // home/ciclo
+      { path: 'pelicula/:id', component: PeliculaComponent },
       { path: 'random', component: RandomComponent },
       { path: '**', redirectTo: '' }
     ]
