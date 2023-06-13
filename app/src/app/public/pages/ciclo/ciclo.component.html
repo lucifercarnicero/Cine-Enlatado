@@ -81,7 +81,7 @@
       <div class="col-md-11 align-self-start">
         {{ comentario?.usuario | uppercase }} :
       </div>
-      <div class="col-md-1 align-items-end" *ngIf="getAdmin() || comentario?.id === getId()">
+      <div class="col-md-1 align-items-end" *ngIf="getAdmin() === 'true' || comentario?.id === getId()">
         <button class="btn btn-danger" (click)="borrarComentario(comentario?._id!)">x</button>
       </div>
 

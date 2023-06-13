@@ -88,7 +88,7 @@ export class CicloComponent implements OnInit {
   }
 
   getAdmin(): any {
-    return window.localStorage.getItem('isAdmin');
+    return window.localStorage.getItem('esAdmin');
   }
 
   getId(): any {
