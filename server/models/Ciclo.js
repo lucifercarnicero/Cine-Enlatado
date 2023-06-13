@@ -16,7 +16,8 @@ const likeSchema = new Schema({
 
 const comentarioSchema = new Schema({
   usuario: String,
-  comentario: String
+  comentario: String,
+  id: String
 });
 
 const cicloSchema = new Schema({

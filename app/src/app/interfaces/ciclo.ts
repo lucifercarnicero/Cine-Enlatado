@@ -15,6 +15,8 @@ export class Like {
 export class Comentario {
   usuario?: string;
   comentario?: string;
+  id?: string;
+  _id?: string;
 }
 
 export class Ciclo {

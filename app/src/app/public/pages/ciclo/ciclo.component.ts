@@ -5,6 +5,7 @@ import { CiclosService } from 'src/app/_services/ciclos.service';
 import { Ciclo } from 'src/app/interfaces/ciclo';
 import { Location } from '@angular/common';
 import { Comentario } from '../../../interfaces/ciclo';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ciclo',
@@ -86,12 +87,22 @@ export class CicloComponent implements OnInit {
     return window.localStorage.getItem('token');
   }
 
+  getAdmin(): any {
+    return window.localStorage.getItem('isAdmin');
+  }
+
+  getId(): any {
+    return window.localStorage.getItem('id');
+  }
+
   enviarComentario() {
     const usuario = localStorage.getItem('name');
+    const id = localStorage.getItem('id');
 
     const nuevoComentario: Comentario = {
       usuario: usuario || '',
-      comentario: this.comentario
+      comentario: this.comentario,
+      id: id || ''
     };
 
     console.log(nuevoComentario);
@@ -104,5 +115,40 @@ export class CicloComponent implements OnInit {
     });
 
   }
+
+  borrarComentario(id: string) {
+    const idCiclo = this.ciclo?._id!;
+
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'No podrás recuperar este comentario',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.ciclosService.borrarComentario(id, { cicloId: idCiclo }).subscribe(
+          (response) => {
+            console.log(response);
+            // Realizar acciones adicionales después de eliminar el comentario
+            this.ngOnInit();
+            Swal.fire(
+              '¡Borrado!',
+              'Tu comentario ha sido borrado.',
+              'success'
+            );
+          },
+          (error) => {
+            console.error(error);
+            // Manejar el error de eliminación de comentario
+          }
+        );
+      }
+    });
+  }
+
+
+
 
 }

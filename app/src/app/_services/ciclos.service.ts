@@ -58,7 +58,10 @@ export class CiclosService {
     return this.http.post(url, comentario);
   }
 
-
+  borrarComentario(id:String, idCiclo:object): Observable<any> {
+    const url = `${this.baseUrl}/api/ciclos/delete/comentario/${id}`;
+    return this.http.delete(url, {body: idCiclo});
+  }
 
 
 }

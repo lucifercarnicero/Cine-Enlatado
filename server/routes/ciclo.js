@@ -14,6 +14,7 @@ router.post('/dislike/:id', ciclosController.dislike);
 router.get('/get/autor/:id', ciclosController.getCiclosByAutor);
 router.get('/get/comentarios/:id', ciclosController.getComentarios);
 router.post('/add/comentario/:id', ciclosController.addComentario);
+router.delete('/delete/comentario/:id', ciclosController.deleteComentario);
 
 // Rutas para comentarios
 //router.get('/coments', ciclosController.getComents);

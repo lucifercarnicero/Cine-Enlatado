@@ -1,6 +1,7 @@
 const Ciclo = require('../models/Ciclo');
 
 
+
 exports.crearCiclo = async (req, res) => {
   try {
     const nuevoCiclo = new Ciclo(req.body);
@@ -166,13 +167,14 @@ exports.getCiclo = async (req, res) => {
       const cicloId = req.params.id;
       const usuarioId = req.body.usuario;
       const comentario = req.body.comentario;
+      const id= req.body.id;
   
       const ciclo = await Ciclo.findById(cicloId);
       if (!ciclo) {
         return res.status(404).json({ mensaje: 'Ciclo no encontrado' });
       }
   
-      ciclo.comentarios.push({ usuario: usuarioId, comentario });
+      ciclo.comentarios.push({ usuario: usuarioId, comentario, id });
       await ciclo.save();
   
       res.status(200).json({ mensaje: 'Comentario añadido correctamente',ciclo: ciclo });
@@ -181,5 +183,41 @@ exports.getCiclo = async (req, res) => {
       res.status(500).json({ mensaje: 'Error interno del servidor' });
     }
   }
+
+  
+
+exports.deleteComentario = async (req, res) => {
+  try {
+    const comentarioId = req.params.id;
+    const cicloId = req.body.cicloId;
+
+    // Buscar el ciclo por su ID y el comentario a eliminar por su ID
+    const ciclo = await Ciclo.findById(cicloId);
+    if (!ciclo) {
+      return res.status(404).json({ mensaje: 'Ciclo no encontrado' });
+    }
+
+    const comentario = ciclo.comentarios.find(com => com._id.toString() === comentarioId);
+    if (!comentario) {
+      return res.status(404).json({ mensaje: 'Comentario no encontrado' });
+    }
+
+    // Eliminar el comentario del arreglo de comentarios
+    ciclo.comentarios = ciclo.comentarios.filter(com => com._id.toString() !== comentarioId);
+
+    // Guardar los cambios en la base de datos
+    await ciclo.save();
+
+    res.status(200).json({ mensaje: 'Comentario eliminado correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar comentario:', error);
+    res.status(500).json({ mensaje: 'Error interno del servidor' });
+  }
+};
+
+
+
+
+
 
 

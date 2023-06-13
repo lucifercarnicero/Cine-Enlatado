@@ -77,14 +77,22 @@
   </div>
 
   <div class="container comentarios mt-2 p-3 text-white" *ngFor="let comentario of ciclo?.comentarios">
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-11 align-self-start">
+        {{ comentario?.usuario | uppercase }} :
+      </div>
+      <div class="col-md-1 align-items-end" *ngIf="getAdmin() || comentario?.id === getId()">
+        <button class="btn btn-danger" (click)="borrarComentario(comentario?._id!)">x</button>
+      </div>
 
-    <div>
-      {{ comentario?.usuario | uppercase }} :
     </div>
-    <div class="p-2">
-      {{ comentario?.comentario }}
+    <div class="row p-2">
+      <div class="p-2">
+        {{ comentario?.comentario }}
+      </div>
     </div>
   </div>
+
 
 
 </div>
