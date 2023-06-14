@@ -1,7 +1,21 @@
 # Cine-Enlatado
+
+Instalaciones necesarias
+1. Node 18 o superior: https://nodejs.org/es
+2. Instalar angular: $ npm install -g @angular/cli en la carpeta del proyecto
+3. Instalar nodemon npm install -g nodemon
+4. Hacer npm install --en app y en server
+
+
+Lanzar server y front por separado
+
+1. Ir a app y lanzar con ```ng server```
+2. Ir a server y lanzar con ```npm run dev```
+
+
+Lanzar toda la app desde server (está buildeado el angular dentro)
 1. Ir al back y lanzarlo ```npm run dev```
-2. Si quieres lanzar back y front por separado haces el paso 3, sino con el 1 es suficiente.
-3. Iniciar la app con ```ng serve```
+
 
 URL publica AWS: **http://54.86.221.92:3000/**
 
