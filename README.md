@@ -30,5 +30,6 @@ Desplegar en AWS:
 
   1. Bajarse clave
   2. Acceder por consola SSH
-  3. ir a la ruta 'cd Cine-Enlatado/server'
-  4. usar el comando ```pm2 start npm -- run dev``` dejará funcionando la app hasta que se detenga la instancia
+  3. User comando: ssh -i "cine-enlatado.pem" ubuntu@ec2-54-86-221-92.compute-1.amazonaws.com
+  4. ir a la ruta 'cd Cine-Enlatado/server'
+  5. usar el comando ```pm2 start npm -- run dev``` dejará funcionando la app hasta que se detenga la instancia
