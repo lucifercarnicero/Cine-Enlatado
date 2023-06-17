@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  konamiCode: string[] = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'Enter'];
+  konamiCode: string[] = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a', 'Enter'];
+
   currentPosition = 0;
 
   constructor(private router: Router) { }
@@ -19,7 +20,7 @@ export class HomeComponent {
 
       if (this.currentPosition === this.konamiCode.length) {
         this.currentPosition = 0;
-        this.router.navigate(['/home/list']); // Reemplaza '/otra-pagina' por la ruta deseada
+        this.router.navigate(['/dashboard/trivial']); // Reemplaza '/otra-pagina' por la ruta deseada
 
       }
     } else {

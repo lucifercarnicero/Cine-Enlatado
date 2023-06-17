@@ -8,6 +8,7 @@ import { IsAdminGuard } from '../guards/is-admin.guard';
 import { CiclosUserComponent } from './ciclos-user/ciclos-user.component';
 import { EditarCicloComponent } from './editar-ciclo/editar-ciclo.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { TrivialComponent } from './trivial/trivial.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path:'crear', component: CrearCicloComponent},
       {path:'editar/:id', component: EditarCicloComponent},
       {path:'editar-usuario/:id', component: EditarUsuarioComponent},
+      {path:'trivial', component: TrivialComponent},
       {path:'**', redirectTo:''}
     ]
   },

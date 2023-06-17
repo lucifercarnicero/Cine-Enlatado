@@ -1,0 +1,55 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h2 class="mb-4 tituloTrivial">Movie Trivial</h2>
+      <div *ngIf="!finalizado">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ preguntasMostradas[preguntaActual]?.pregunta }}</h5>
+            <ul class="text-left">
+              <li *ngFor="let opcion of preguntasMostradas[preguntaActual]?.opciones; let j = index">
+                <label>
+                  <input type="radio" [(ngModel)]="respuestasUsuario[preguntaActual]" [value]="j" name="respuesta{{ preguntaActual }}" required>
+                  {{ opcion }}
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer">
+
+            <button class="boton" type="button" (click)="siguientePregunta()">
+              <span>
+                Siguiente
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="progress mt-4">
+          <div class="progress-bar" role="progressbar" [style.width]="((preguntaActual + 1) / preguntasMostradas.length) * 100 + '%'" [attr.aria-valuenow]="preguntaActual + 1" aria-valuemin="0" [attr.aria-valuemax]="preguntasMostradas.length"></div>
+        </div>
+      </div>
+      <div *ngIf="finalizado">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">¡Has finalizado el trivial!</h5>
+            <p class="card-text">Has acertado {{ aciertos }} preguntas.</p>
+          </div>
+          <div class="card-footer">
+
+            <button class="boton" type="button" (click)="reiniciar()">
+              <span>
+                Volver a jugar
+              </span>
+            </button>
+
+            <button class="boton" type="button" (click)="salir()">
+              <span>
+                Salir
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
