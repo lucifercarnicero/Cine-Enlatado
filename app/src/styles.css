@@ -23,6 +23,11 @@
   src: url('./assets/fonts/poppins/Poppins-SemiBold.ttf');
 }
 
+@font-face {
+  font-family: BladeRunner;
+  src: url('./assets/fonts/BLADRMF_.TTF');
+}
+
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
@@ -31,6 +36,10 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: Poppins-Bold;
+}
+
+.bladeRunner {
+  font-family: BladeRunner;
 }
 
 body, html {
