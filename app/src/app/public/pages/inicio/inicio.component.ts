@@ -63,7 +63,6 @@ export class InicioComponent implements OnInit {
 
   goTo(id: string): void {
     if (id) {
-      // Realiza la redirección o la lógica necesaria con el id
       this.router.navigate(['home/ciclo', id]);
     }
   }

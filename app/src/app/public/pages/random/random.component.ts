@@ -23,7 +23,7 @@ export class RandomComponent implements OnInit {
     this.ciclosService.obtenerCiclos().subscribe(
       data => {
         this.ciclos = data;
-
+        //repesco de inicio lo que hice para obtener los ciclos random
         // Ordenar los ciclos por numLikes de mayor a menor
         this.ciclos.sort((a, b) => (b.numLikes || 0) - (a.numLikes || 0));
 

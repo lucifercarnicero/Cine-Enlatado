@@ -41,7 +41,7 @@ export class EditarCicloComponent implements OnInit {
     this.ciclosService.getCiclo(id).subscribe((ciclo) => {
       if (ciclo) {
         this.ciclo = ciclo;
-        console.log(this.ciclo); // Aquí se muestra el ciclo por consola
+
 
         // Llenar el arreglo selectedMovies con las películas del ciclo
         this.selectedMovies = ciclo.peliculas!.map((pelicula) => {
@@ -90,7 +90,7 @@ export class EditarCicloComponent implements OnInit {
 
   onSubmit() {
     if (this.searchForm.invalid) {
-      // Realizar acciones adicionales si el formulario es inválido (mostrar mensajes de error, etc.)
+
       return;
     }
 
@@ -131,7 +131,7 @@ export class EditarCicloComponent implements OnInit {
           showConfirmButton: false,
           heightAuto: false
         });
-        // Realizar acciones adicionales si es necesario
+
       },
       (error) => {
         console.error('Error al editar el ciclo:', error);

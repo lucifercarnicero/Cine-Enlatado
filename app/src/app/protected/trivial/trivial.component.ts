@@ -81,17 +81,17 @@ export class TrivialComponent implements OnInit {
     const registro: Ranking = {
       aciertos: this.aciertos,
       jugador: localStorage.getItem('name') || ''
-      // Otros campos del registro que desees enviar al backend
+
     };
 
     this.rankingService.postRegistro(registro).subscribe(
       response => {
-        console.log(response.mensaje); // Mensaje de éxito al guardar el registro en el ranking
-        // Otras acciones después de guardar el registro
+        console.log(response.mensaje);
+
       },
       error => {
         console.error(error);
-        // Manejo de error al guardar el registro en el ranking
+
       }
     );
   }

@@ -31,13 +31,13 @@ export class CicloComponent implements OnInit {
     this.ciclosService.getCiclo(id).subscribe((ciclo) => {
       if (ciclo) {
         this.ciclo = ciclo;
-        console.log(this.ciclo); // Aquí se muestra el producto por consola
+        console.log(this.ciclo);
 
         // Verificar si el usuario está en el array de likes
         const usuarioId = localStorage.getItem('id');
         this.isLiked = this.ciclo.likes?.some((like) => like.usuario === usuarioId) ?? false;
       } else {
-        // Manejar el caso en que no se encuentra el producto
+        // Manejar el caso en que no se encuentra
         this.router.navigate(['/error']);
       }
     });
@@ -131,7 +131,6 @@ export class CicloComponent implements OnInit {
         this.ciclosService.borrarComentario(id, { cicloId: idCiclo }).subscribe(
           (response) => {
             console.log(response);
-            // Realizar acciones adicionales después de eliminar el comentario
             this.ngOnInit();
             Swal.fire(
               '¡Borrado!',
@@ -141,7 +140,7 @@ export class CicloComponent implements OnInit {
           },
           (error) => {
             console.error(error);
-            // Manejar el error de eliminación de comentario
+
           }
         );
       }

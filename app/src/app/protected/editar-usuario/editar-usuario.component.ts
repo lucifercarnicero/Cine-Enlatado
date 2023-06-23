@@ -68,7 +68,7 @@ export class EditarUsuarioComponent implements OnInit {
         userEdit.password = formData.password;
       }
       console.log(userEdit);
-      // Pass the userEdit object to the service
+
       this.id = localStorage.getItem('id')!;
       this.authService.editarUsuario(this.id, userEdit).subscribe(resp => {
         console.log(resp);

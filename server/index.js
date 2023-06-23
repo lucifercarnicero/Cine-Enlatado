@@ -51,13 +51,13 @@ app.get('/home/random', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
     });
 
-    app.get('/auth/login', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public/index.html'));
-        });
+app.get('/auth/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+    });
 
-        app.get('/auth/register', (req, res) => {
-            res.sendFile(path.join(__dirname, 'public/index.html'));
-            });
+app.get('/auth/register', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+    });
 
 
 app.listen(process.env.PORT, () => {

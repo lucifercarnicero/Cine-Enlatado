@@ -64,7 +64,7 @@ export class CrearCicloComponent {
 
 
     if (this.searchForm.invalid) {
-      // Realizar acciones adicionales si el formulario es inválido (mostrar mensajes de error, etc.)
+
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -98,11 +98,11 @@ export class CrearCicloComponent {
     this.cicloService.crearCiclo(ciclo).subscribe(
       (data) => {
         console.log(data);
-        // Realizar acciones adicionales si es necesario
+
       },
       (error) => {
         console.error('Error al crear el ciclo:', error);
-        // Mostrar mensaje de error al usuario o realizar acciones adicionales para manejar el error
+
       }
     );
 

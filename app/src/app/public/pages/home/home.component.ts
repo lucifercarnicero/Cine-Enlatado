@@ -20,7 +20,7 @@ export class HomeComponent {
 
       if (this.currentPosition === this.konamiCode.length) {
         this.currentPosition = 0;
-        this.router.navigate(['/dashboard/trivial']); // Reemplaza '/otra-pagina' por la ruta deseada
+        this.router.navigate(['/dashboard/trivial']);
 
       }
     } else {

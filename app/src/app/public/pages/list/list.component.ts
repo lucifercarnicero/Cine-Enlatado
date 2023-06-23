@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
     this.ciclosService.obtenerCiclos().subscribe(
       (ciclos) => {
         this.ciclos = ciclos;
-        this.originalCiclos = ciclos; // Store the original list
+        this.originalCiclos = ciclos;
         console.log(this.ciclos);
       },
       (error) => console.log(error)
@@ -38,7 +38,7 @@ export class ListComponent implements OnInit {
 
   showCiclo(id: string) {
     console.log(id);
-    // Add logic to search for ciclo by ID in the service
+
   }
 
   goCiclo(id: string) {
@@ -56,20 +56,20 @@ export class ListComponent implements OnInit {
         ciclo.nombre.toLowerCase().includes(filtro)
       );
     } else {
-      this.ciclos = this.originalCiclos; // Revert back to the original list
+      this.ciclos = this.originalCiclos; // Si no hay filtro, mostrar todos los ciclos
     }
 
-    this.mostrarAlerta = this.ciclos.length === 0; // Set mostrarAlerta based on the filtered ciclos
+    this.mostrarAlerta = this.ciclos.length === 0; // Modifica la propiedad mostrarAlerta si no hay resultados
 
-    // Reset pagination to first page
+    // Resetear la paginación
     this.currentPage = 1;
   }
 
   limpiarBusqueda() {
     this.filtroNombre = '';
-    this.ciclos = this.originalCiclos; // Display all ciclos again
-    this.mostrarAlerta = false; // Hide the alert
-    this.currentPage = 1; // Reset pagination to first page
+    this.ciclos = this.originalCiclos; // Ver todos ciclos otra vez
+    this.mostrarAlerta = false; // Oculta la alerta de no hay resultados
+    this.currentPage = 1; // Reset paginas
   }
 
   getTotalPages(): number {
